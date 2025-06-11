@@ -1,7 +1,7 @@
 const HomeContent = () => {
-   return <main className="home-content">
+   return <div className="home-content">
       <h1>Home Content</h1>
-   </main>;
+   </div>;
 }
 
 export default HomeContent;
