@@ -1,23 +1,6 @@
 @use '@/styles/variables.scss' as *;
 
 .ProductTile {
-   .image-wrap {
-      background: $background-light;
-      height: 270px;
-      position: relative;
-      overflow: hidden;
-      width: 100%;
-
-      img {
-         margin: 0 auto;
-         width: 100%;
-         height: 100%;
-         max-width: 300px;
-         object-fit: cover;
-         object-position: center;
-      }
-   }
-
    .product-info {
       padding: $padding-m;
 

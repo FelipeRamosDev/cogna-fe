@@ -1,7 +1,5 @@
-import { Card } from '@/components/common';
+import { Card, ImagePlaceholder } from '@/components/common';
 import { parseCSS, parseMoney } from '@/helpers/parse';
-import Image from 'next/image';
-import ImagePlaceholder from '@/resources/images/image_placeholder.svg';
 
 export default function ProductTile({ product, className = '' }) {
    const classes = parseCSS('ProductTile', className);
@@ -12,18 +10,7 @@ export default function ProductTile({ product, className = '' }) {
 
    return (
       <Card className={classes} elevation="l" padding="none">
-         <div className="image-wrap">
-            <Image
-               fill
-               priority
-               src={ImagePlaceholder}
-               alt="Image Placeholder"
-               style={{
-                  objectFit: 'cover',
-                  objectPosition: 'center',
-               }}
-            />
-         </div>
+         <ImagePlaceholder />
 
          <div className="product-info">
             <div className="info-header">

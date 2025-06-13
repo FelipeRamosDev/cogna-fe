@@ -1,0 +1,47 @@
+@use '@/styles/variables.scss' as *;
+
+.ProductContent {
+   .product-details {
+      display: flex;
+      flex-direction: column;
+
+      @media screen and (min-width: $screen-m) {
+         flex-direction: row;
+      }
+
+      > div {
+         flex: 48%;
+      }
+
+      .ImagePlaceholder {
+         min-height: 300px;
+
+         @media screen and (min-width: $screen-m) {
+            min-height: 550px;
+         }
+      }
+
+      .product-info {
+         padding: $padding-m;
+
+         @media screen and (min-width: $screen-m) {
+            padding: $padding-xl;
+         }
+
+         .product-path,
+         .label {
+            color: $text-soft;
+            margin-bottom: 0;
+         }
+
+         .price {
+            font-size: 2rem;
+            font-weight: 700;
+         }
+
+         .description-wrap {
+            margin-top: 2rem;
+         }
+      }
+   }
+}
