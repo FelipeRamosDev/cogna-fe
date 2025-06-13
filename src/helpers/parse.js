@@ -10,6 +10,7 @@ export function parsePadding(size) {
          return 'padding-l';
       case 'xl':
          return 'padding-xl';
+      case 'none':
       default:
          return '';
    }
@@ -27,6 +28,7 @@ export function parseRadius(size) {
          return 'radius-l';
       case 'xl':
          return 'radius-xl';
+      case 'none':
       default:
          return '';
    }
@@ -44,6 +46,7 @@ export function parseElevation(size) {
          return 'elevation-l';
       case 'xl':
          return 'elevation-xl';
+      case 'none':
       default:
          return '';
    }
@@ -69,4 +72,13 @@ export function parseCSS(classes, merge) {
    }
 
    return result.join(' ');
+}
+
+export function parseMoney(value) {
+   return new Intl.NumberFormat('pt-BR', {
+      style: 'currency',
+      currency: 'BRL',
+      minimumFractionDigits: 2,
+      maximumFractionDigits: 2,
+   }).format(value);
 }
