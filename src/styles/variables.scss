@@ -17,25 +17,28 @@ $card: color.adjust($secondary, $lightness: -6%, $saturation: -70%);
 $screen-xs: 375px;
 $screen-s: 425px;
 $screen-m: 768px;
+$screen-l: 1024px;
 $screen-xl: 1440px;
+
+$size-multiplier: 1.618;
 
 // Paddings
 $padding-xs: 0.4rem;
-$padding-s: $padding-xs * 1.618;
-$padding-m: $padding-s * 1.618;
-$padding-l: $padding-m * 1.618;
-$padding-xl: $padding-l * 1.618;
+$padding-s: $padding-xs * $size-multiplier;
+$padding-m: $padding-s * $size-multiplier;
+$padding-l: $padding-m * $size-multiplier;
+$padding-xl: $padding-l * $size-multiplier;
 
 // Border Radius
 $radius-xs: 0.2rem;
-$radius-s: $radius-xs * 1.618;
-$radius-m: $radius-s * 1.618;
-$radius-l: $radius-m * 1.618;
-$radius-xl: $radius-l * 1.618;
+$radius-s: $radius-xs * $size-multiplier;
+$radius-m: $radius-s * $size-multiplier;
+$radius-l: $radius-m * $size-multiplier;
+$radius-xl: $radius-l * $size-multiplier;
 
 // Elevation levels
 $elevation-xs: 10px;
-$elevation-s: $elevation-xs * 1.618;
-$elevation-m: $elevation-s * 1.618;
-$elevation-l: $elevation-m * 1.618;
-$elevation-xl: $elevation-l * 1.618;
+$elevation-s: $elevation-xs * $size-multiplier;
+$elevation-m: $elevation-s * $size-multiplier;
+$elevation-l: $elevation-m * $size-multiplier;
+$elevation-xl: $elevation-l * $size-multiplier;
