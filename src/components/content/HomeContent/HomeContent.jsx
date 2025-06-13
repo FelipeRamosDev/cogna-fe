@@ -1,10 +1,10 @@
-import { Container } from "@/components/common";
+import { Container } from '@/components/common';
 
 export default function HomeContent() {
    return (
       <div className="HomeContent">
          <Container>
-            <h1>Home Content</h1>
+            <h1>Produtos</h1>
          </Container>
       </div>
    );

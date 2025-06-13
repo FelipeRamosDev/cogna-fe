@@ -5,8 +5,10 @@ $secondary: #0D1B2A;
 $tertiary: #8FE388;
 
 $text: color.adjust($primary, $lightness: 80%);
+$text-soft: color.adjust($primary, $lightness: 40%, $saturation: -95%);
 $text-contrast: color.adjust($primary, $lightness: -80%);
 $background: color.adjust($primary, $lightness: -15%, $saturation: -70%);
+$background-light: color.adjust($primary, $lightness: -10%, $saturation: -80%);
 
 // Elements
 $card: color.adjust($secondary, $lightness: -6%, $saturation: -70%);
