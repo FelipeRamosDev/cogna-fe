@@ -5,7 +5,7 @@ export default function ProductsGrid({ products = [] }) {
    return (
       <div className="ProductsGrid">
          {products.map(product => (
-            <Link key={product.id} className="item" href={`/product/${product.id}`}>
+            <Link key={product.id} className="item" href={`/produto/${product.id}`}>
                <ProductTile product={product} />
             </Link>
          ))}
