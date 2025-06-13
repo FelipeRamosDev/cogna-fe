@@ -13,7 +13,7 @@ export default function ProductContent({ product }) {
                   <h1>{product.name}</h1>
 
                   <div className="price-group">
-                     <span className="label">Price:</span>
+                     <span className="label">Preço:</span>
                      <p className="price">{parseMoney(product.price)}</p>
                   </div>
 
