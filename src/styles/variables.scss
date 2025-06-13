@@ -1,0 +1,14 @@
+@use "sass:color";
+
+$primary: #006C67;
+$secondary: #0D1B2A;
+$tertiary: #8FE388;
+
+$text: color.adjust($primary, $lightness: 80%);
+$text-contrast: color.adjust($primary, $lightness: -80%);
+$background: color.adjust($primary, $lightness: -19%);
+
+$screen-xs: 375px;
+$screen-s: 425px;
+$screen-m: 768px;
+$screen-xl: 1440px;
