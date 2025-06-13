@@ -6,9 +6,34 @@ $tertiary: #8FE388;
 
 $text: color.adjust($primary, $lightness: 80%);
 $text-contrast: color.adjust($primary, $lightness: -80%);
-$background: color.adjust($primary, $lightness: -19%);
+$background: color.adjust($primary, $lightness: -15%, $saturation: -70%);
 
+// Elements
+$card: color.adjust($secondary, $lightness: -6%, $saturation: -70%);
+
+// Screen Breakpoints
 $screen-xs: 375px;
 $screen-s: 425px;
 $screen-m: 768px;
 $screen-xl: 1440px;
+
+// Paddings
+$padding-xs: 0.4rem;
+$padding-s: $padding-xs * 1.618;
+$padding-m: $padding-s * 1.618;
+$padding-l: $padding-m * 1.618;
+$padding-xl: $padding-l * 1.618;
+
+// Border Radius
+$radius-xs: 0.2rem;
+$radius-s: $radius-xs * 1.618;
+$radius-m: $radius-s * 1.618;
+$radius-l: $radius-m * 1.618;
+$radius-xl: $radius-l * 1.618;
+
+// Elevation levels
+$elevation-xs: 10px;
+$elevation-s: $elevation-xs * 1.618;
+$elevation-m: $elevation-s * 1.618;
+$elevation-l: $elevation-m * 1.618;
+$elevation-xl: $elevation-l * 1.618;
