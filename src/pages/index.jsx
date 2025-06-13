@@ -1,5 +1,5 @@
 import { PageBase } from '@/components/layout';
-import HomeContent from '@/components/Home';
+import { HomeContent } from '@/components/content';
 
 export default function HomePage() {
   return (
