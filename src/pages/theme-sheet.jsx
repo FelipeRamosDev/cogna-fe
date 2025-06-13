@@ -1,5 +1,3 @@
-import '../styles/theme-sheet.scss';
-
 export default function ThemeSheet() {
    return (
       <main className="tema-projeto">
