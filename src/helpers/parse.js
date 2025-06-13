@@ -71,7 +71,7 @@ export function parseCSS(classes, merge) {
       result = [ ...result, ...merge ];
    }
 
-   return result.join(' ');
+   return result.filter(item => item).join(' ');
 }
 
 export function parseMoney(value) {

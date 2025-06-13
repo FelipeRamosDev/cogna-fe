@@ -1,0 +1,27 @@
+@use '@/styles/variables.scss' as *;
+
+.Button {
+   border: none;
+   background-color: $secondary;
+   color: $text;
+   text-transform: uppercase;
+   cursor: pointer;
+   transition: all 50ms;
+
+   &.fullwidth {
+      width: 100%;
+   }
+
+   &.cta {
+      background-color: $tertiary;
+      color: $text-contrast;
+   }
+
+   &:hover {
+      background-color: $tertiary-light;
+   }
+
+   &:active {
+      transform: scale(0.995);
+   }
+}

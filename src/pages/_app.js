@@ -1,4 +1,6 @@
 import '@/styles/style.scss';
+import '@/styles/theme-sheet.scss';
+
 import Head from 'next/head';
 import { Roboto } from 'next/font/google';
 
