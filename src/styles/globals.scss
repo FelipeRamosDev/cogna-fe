@@ -49,3 +49,17 @@ p {
 small {
   font-size: 0.8rem;
 }
+
+a {
+  text-decoration: none;
+  color: $text;
+  transition: all 100ms;
+
+  &:hover {
+    color: $tertiary;
+  }
+
+  &:visited {
+    color: $text;
+  }
+}
