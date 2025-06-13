@@ -1,10 +1,11 @@
 import { Container } from '@/components/common';
+import { ProductsGrid } from '@/components/grids';
 
-export default function HomeContent() {
+export default function HomeContent({ products }) {
    return (
       <div className="HomeContent">
          <Container>
-            <h1>Produtos</h1>
+            <ProductsGrid products={products} />
          </Container>
       </div>
    );
