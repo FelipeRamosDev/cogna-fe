@@ -1,0 +1,7 @@
+@use '@/styles/variables.scss' as *;
+
+.Container {
+   margin: 0 auto;
+   width: 98%;
+   max-width: $screen-xl;
+}
