@@ -1,6 +1,22 @@
 import { Container, Button, Card, ImagePlaceholder } from '@/components/common';
 import { parseMoney } from '@/helpers/parse';
 
+/**
+ * Renders the detailed view of a single product, including image, name, category, price, and description.
+ *
+ * Structured using a Card layout inside a Container, this component displays all essential
+ * product information and provides a button to add the item to the cart.
+ *
+ * @component
+ * @param {Object} props - The component props.
+ * @param {Object} props.product - The product data to display.
+ * @param {string} props.product.name - The name of the product.
+ * @param {string} props.product.category - The category to which the product belongs.
+ * @param {number} props.product.price - The price of the product.
+ * @param {string} props.product.description - A textual description of the product.
+ *
+ * @returns {JSX.Element} A detailed product section with visual and textual elements.
+ */
 export default function ProductContent({ product }) {
    return (
       <div className="ProductContent">
