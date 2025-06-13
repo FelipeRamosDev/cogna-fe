@@ -17,7 +17,7 @@ export default function ProductContent({ product }) {
                      <p className="price">{parseMoney(product.price)}</p>
                   </div>
 
-                  <Button className="add-to-cart" type="cta" fullwidth>Adicionar ao Carrinho</Button>
+                  <Button className="add-to-cart" color="tertiary" fullwidth>Adicionar ao Carrinho</Button>
 
                   <div className="description-wrap">
                      <span className="label">Descrição:</span>

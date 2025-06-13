@@ -4,6 +4,8 @@ $primary: #006C67;
 $secondary: #0D1B2A;
 $tertiary: #8FE388;
 
+$primary-light: color.adjust($primary, $lightness: 5%, $saturation: -5%);
+$secondary-light: color.adjust($secondary, $lightness: 5%, $saturation: -5%);
 $tertiary-light: color.adjust($tertiary, $lightness: 5%, $saturation: -5%);
 
 $text: color.adjust($primary, $lightness: 80%);
