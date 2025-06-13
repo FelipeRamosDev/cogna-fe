@@ -1,0 +1,43 @@
+@use '@/styles/variables.scss' as *;
+
+.ProductsGrid {
+   display: flex;
+   flex-wrap: wrap;
+
+   @media screen and (min-width: $screen-m) {
+      gap: 4%;
+   }
+
+   @media screen and (min-width: $screen-l) {
+      gap: 2%;
+   }
+
+   .item {
+      flex: 100%;
+      max-width: 100%;
+      text-decoration: none;
+      color: $text;
+
+      @media screen and (min-width: $screen-m) {
+         flex: 48%;
+         max-width: 48%;
+
+         .ProductTile {
+            margin-bottom: 2.5rem;
+         }
+      }
+
+      @media screen and (min-width: $screen-l) {
+         flex: 32%;
+         max-width: 32%;
+         
+         .ProductTile {
+            margin-bottom: 2.5rem;
+         }
+      }
+
+      :visited {
+         color: $text;
+      }
+   }
+}

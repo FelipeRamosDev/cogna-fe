@@ -5,10 +5,40 @@ $secondary: #0D1B2A;
 $tertiary: #8FE388;
 
 $text: color.adjust($primary, $lightness: 80%);
+$text-soft: color.adjust($primary, $lightness: 40%, $saturation: -95%);
 $text-contrast: color.adjust($primary, $lightness: -80%);
-$background: color.adjust($primary, $lightness: -19%);
+$background: color.adjust($primary, $lightness: -15%, $saturation: -70%);
+$background-light: color.adjust($primary, $lightness: -10%, $saturation: -80%);
 
+// Elements
+$card: color.adjust($secondary, $lightness: -6%, $saturation: -70%);
+
+// Screen Breakpoints
 $screen-xs: 375px;
 $screen-s: 425px;
 $screen-m: 768px;
+$screen-l: 1024px;
 $screen-xl: 1440px;
+
+$size-multiplier: 1.618;
+
+// Paddings
+$padding-xs: 0.4rem;
+$padding-s: $padding-xs * $size-multiplier;
+$padding-m: $padding-s * $size-multiplier;
+$padding-l: $padding-m * $size-multiplier;
+$padding-xl: $padding-l * $size-multiplier;
+
+// Border Radius
+$radius-xs: 0.2rem;
+$radius-s: $radius-xs * $size-multiplier;
+$radius-m: $radius-s * $size-multiplier;
+$radius-l: $radius-m * $size-multiplier;
+$radius-xl: $radius-l * $size-multiplier;
+
+// Elevation levels
+$elevation-xs: 10px;
+$elevation-s: $elevation-xs * $size-multiplier;
+$elevation-m: $elevation-s * $size-multiplier;
+$elevation-l: $elevation-m * $size-multiplier;
+$elevation-xl: $elevation-l * $size-multiplier;
