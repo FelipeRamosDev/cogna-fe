@@ -2,26 +2,52 @@
 
 .Button {
    border: none;
-   background-color: $secondary;
+   background: none;
    color: $text;
    text-transform: uppercase;
    cursor: pointer;
    transition: all 50ms;
 
+   &:active {
+      transform: scale(0.995);
+   }
+
    &.fullwidth {
       width: 100%;
    }
 
-   &.cta {
+   &.outlined {
+      border: 1px solid $text;
+   }
+
+   &.tranparent {
+      background-color: transparent;
+   }
+
+   &.primary.filled {
+      background-color: $primary;
+      color: $text;
+      
+      &:hover {
+         background-color: $primary-light;
+      }
+   }
+
+   &.secondary.filled {
+      background-color: $secondary;
+      color: $text;
+      
+      &:hover {
+         background-color: $secondary-light;
+      }
+   }
+
+   &.tertiary.filled {
       background-color: $tertiary;
       color: $text-contrast;
-   }
-
-   &:hover {
-      background-color: $tertiary-light;
-   }
-
-   &:active {
-      transform: scale(0.995);
+      
+      &:hover {
+         background-color: $tertiary-light;
+      }
    }
 }
