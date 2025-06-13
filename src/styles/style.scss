@@ -1,1 +1,5 @@
 @use './globals.scss';
+
+// Components
+@use '@/components/common/Container/Container.scss';
+@use '@/components/headers/HeaderBase/HeaderBase.scss';

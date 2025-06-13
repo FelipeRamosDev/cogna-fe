@@ -1,5 +1,10 @@
-import HomeContent from "@/components/Home";
+import { PageBase } from '@/components/layout';
+import HomeContent from '@/components/Home';
 
-export default function Home() {
-  return <HomeContent />;
+export default function HomePage() {
+  return (
+    <PageBase>
+      <HomeContent />
+    </PageBase>
+  );
 }
