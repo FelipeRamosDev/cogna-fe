@@ -14,9 +14,10 @@ export default function ProductTile({ product, className = '' }) {
       <Card className={classes} elevation="l" padding="none">
          <div className="image-wrap">
             <Image
+               fill
+               priority
                src={ImagePlaceholder}
                alt="Image Placeholder"
-               fill
                style={{
                   objectFit: 'cover',
                   objectPosition: 'center',
