@@ -1,0 +1,50 @@
+@use './variables.scss' as *;
+
+.tema-projeto {
+   padding: 1rem;
+
+   .title {
+      font-size: 2rem;
+      text-align: center;
+      margin-bottom: 2rem;
+   }
+
+   section {
+      margin-bottom: 2rem;
+   }
+
+   .pallete {
+      display: flex;
+      flex-direction: column;
+      height: 300px;
+      width: 100%;
+
+      @media screen and (min-width: $screen-m) {
+         flex-direction: row;
+      }
+
+      > div {
+         padding: 1rem;
+      }
+
+      h3 {
+         font-size: 1rem;
+      }
+
+      .primary {
+         background-color: $primary;
+         flex: 60%;
+      }
+      
+      .secondary {
+         background-color: $secondary;
+         flex: 30%;
+      }
+      
+      .tertiary {
+         background-color: $tertiary;
+         color: $text-contrast;
+         flex: 10%;
+      }
+   }
+}
