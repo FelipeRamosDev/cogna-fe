@@ -1,30 +1,45 @@
 # Cogna - Teste Tecnico - Frontend
 Este projeto é um teste técnico desenvolvido para a Cogna, com foco em boas práticas de arquitetura, organização de código e experiência do usuário. As principais decisões técnicas incluem o uso de roteamento baseado em arquivos na pasta `/pages` com Server Side Rendering (SSR), estruturação dos componentes por pastas dedicadas e modularização da interface em componentes reutilizáveis. Essas escolhas trazem vantagens como maior clareza na organização do código, facilidade de manutenção e refatoração, melhor desempenho inicial das páginas, SEO aprimorado e escalabilidade para o crescimento do projeto.
 
-## Instalação sem Docker
+## Instalação com Docker
+1. Certifique-se de ter o Docker instalado em sua máquina.
+2. Rode o seguinte comando para criar uma rede Docker e iniciar o container do backend, caso você já tenha criado a rede, pode pular este passo:
+   ```bash
+   docker network create cogna-net
+   ```
+3. Rode o seguinte comando para iniciar o container do backend:
+   ```bash
+   docker run -d --name cogna-fe --network cogna-net -p 3000:3000 feliperamosdevelop/cogna-fe:latest
+   ```
+
+<details>
+   <summary><strong>Instalação sem Docker</strong></summary>
+
 1. Certifique-se de ter o [Node.js](https://nodejs.org/) instalado (versão 18 ou superior recomendada).
 2. Clone o repositório:
-   ```bash
-   git clone https://github.com/FelipeRamosDev/cogna-fe.git
-   cd cogna-fe
-   ```
+    ```bash
+    git clone https://github.com/FelipeRamosDev/cogna-fe.git
+    cd cogna-fe
+    ```
 3. Instale as dependências:
-   ```bash
-   npm install
-   ```
+    ```bash
+    npm install
+    ```
 4. Crie um arquivo `.env` na raiz do projeto com as seguintes variáveis de ambiente:
-   ```env
-   API_ROOT=http://localhost:8000
-   ```
+    ```env
+    API_ROOT=http://localhost:8000
+    ```
 5. Rode o build de produção:
-   ```bash
-   npm run build
-   ```
+    ```bash
+    npm run build
+    ```
 6. Inicie o servidor de desenvolvimento:
-   ```bash
-   npm run start
-   ```
+    ```bash
+    npm run start
+    ```
 7. Acesse o projeto em [http://localhost:3000](http://localhost:3000).
+
+</details>
 
 ## Principais decisões técnicas
 ### 1. Roteamento baseado em `/pages` com Server Side Rendering (SSR)
