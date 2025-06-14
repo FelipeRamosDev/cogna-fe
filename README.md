@@ -1,36 +1,59 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Cogna - Teste Tecnico - Frontend
+Este projeto é um teste técnico desenvolvido para a Cogna, com foco em boas práticas de arquitetura, organização de código e experiência do usuário. As principais decisões técnicas incluem o uso de roteamento baseado em arquivos na pasta `/pages` com Server Side Rendering (SSR), estruturação dos componentes por pastas dedicadas e modularização da interface em componentes reutilizáveis. Essas escolhas trazem vantagens como maior clareza na organização do código, facilidade de manutenção e refatoração, melhor desempenho inicial das páginas, SEO aprimorado e escalabilidade para o crescimento do projeto.
 
-## Getting Started
+## Instalação sem Docker
+1. Certifique-se de ter o [Node.js](https://nodejs.org/) instalado (versão 18 ou superior recomendada).
+2. Clone o repositório:
+   ```bash
+   git clone https://github.com/FelipeRamosDev/cogna-fe.git
+   cd cogna-fe
+   ```
+3. Instale as dependências:
+   ```bash
+   npm install
+   ```
+4. Crie um arquivo `.env` na raiz do projeto com as seguintes variáveis de ambiente:
+   ```env
+   API_ROOT=http://localhost:8000
+   ```
+5. Rode o build de produção:
+   ```bash
+   npm run build
+   ```
+6. Inicie o servidor de desenvolvimento:
+   ```bash
+   npm run start
+   ```
+7. Acesse o projeto em [http://localhost:3000](http://localhost:3000).
 
-First, run the development server:
+## Principais decisões técnicas
+### 1. Roteamento baseado em `/pages` com Server Side Rendering (SSR)
+Optei por utilizar a abordagem de roteamento baseada na pasta `/pages`, pois ela simplifica a configuração das rotas e torna o mapeamento entre URLs e componentes mais intuitivo. Além disso, utilizei Server Side Rendering (SSR) para as duas rotas otimizando o carregamento inicial das páginas e melhorar o SEO, permitindo que mecanismos de busca indexem o conteúdo de forma mais eficiente e proporcionando uma experiência mais rápida para o usuário, especialmente em buscas e acessos diretos.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+### 2. Estrutura de componentes por pasta
+Cada componente é declarado dentro de uma pasta própria, onde o arquivo principal do componente tem o mesmo nome da pasta (por exemplo, `Button/Button.jsx`). Além disso, cada pasta de componente (common/content/grids/...) possui um arquivo `index.js` responsável por exportar o componente principal de suas sub-pastas e outros utilitários relacionados. Essa estrutura facilita a importação dos componentes em outras partes do projeto, permitindo o uso de caminhos mais simples como `import { Button } from './components/Button'`.
+
+As principais vantagens dessa abordagem são:
+- **Clareza**: Fica fácil identificar o componente principal e seus arquivos auxiliares (estilos, testes, etc).
+- **Refatoração facilitada**: Renomear ou mover componentes é mais seguro, pois evita conflitos comuns com múltiplos arquivos `index.jsx` e centraliza os exports.
+- **Escalabilidade**: Componentes mais complexos podem ter seus arquivos organizados juntos, mantendo o projeto limpo e as importações consistentes.
+
+Exemplo da estrutura de pastas e arquivos para um componente chamado `Button`:
+```
+components/
+└── common/
+   ├── index.jsx            # Exportação dos componentes da pasta common
+   └── Button/              # Pasta do componente Button
+      ├── Button.jsx        # Componente principal
+      ├── Button.scss       # Estilos específicos do componente (opcional)
+      ├── Button.test.jsx   # Testes unitários (opcional)
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+O arquivo `index.js` geralmente contém:
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+```js
+export { default as Button } from './Button/Button';
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+### 3. Modularização da UI
+A interface foi quebrada em pequenos componentes reutilizáveis e independentes. Essa modularização facilita a manutenção, testes e reutilização dos componentes em diferentes partes do projeto, além de tornar o desenvolvimento mais ágil e organizado.
