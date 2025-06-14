@@ -1,0 +1,43 @@
+@use '@/styles/variables.scss' as *;
+
+.ProductTile {
+   .product-info {
+      padding: $padding-m;
+
+      .info-header {
+         display: flex;
+         justify-content: space-between;
+         margin-bottom: 0.5rem;
+         gap: 1rem;
+
+         .title {
+            font-size: 1.4rem;
+            margin-bottom: 0;
+            display: -webkit-box;
+            -webkit-line-clamp: 1;
+            -webkit-box-orient: vertical;
+            line-clamp: 1;
+            overflow: hidden;
+         }
+
+         .price {
+            font-size: 1.4rem;
+            font-weight: 600;
+         }
+      }
+
+      .category {
+         color: $text-soft;
+      }
+
+      .description {
+         color: $text-soft;
+         margin-bottom: 0;
+         display: -webkit-box;
+         -webkit-line-clamp: 2;
+         -webkit-box-orient: vertical;
+         line-clamp: 2;
+         overflow: hidden;
+      }
+   }
+}

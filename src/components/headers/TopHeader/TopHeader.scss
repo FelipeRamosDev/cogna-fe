@@ -1,0 +1,29 @@
+@use '@/styles/variables.scss' as *;
+
+.TopHeader {
+   background: $secondary;
+   padding: 0.5rem;
+   margin-bottom: $padding-xl + 2.5rem;
+   width: 100%;
+   position: sticky;
+   top: 0;
+   z-index: 10;
+   box-shadow: 0 0 50px rgb(20, 20, 20);
+
+   .Container {
+      display: flex;
+      justify-content: space-between;
+
+      .logo {
+         font-size: 1.5rem;
+         font-weight: 700;
+         -webkit-user-select: none;
+         user-select: none;
+      }
+
+      nav {
+         display: flex;
+         align-items: center;
+      }
+   }
+}

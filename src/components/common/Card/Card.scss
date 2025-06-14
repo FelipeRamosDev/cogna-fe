@@ -1,0 +1,7 @@
+@use '@/styles/variables.scss' as *;
+
+.Card {
+   background: $card;
+   margin-bottom: 1rem;
+   overflow: hidden;
+}
