@@ -1,3 +1,9 @@
+/**
+ * Maps padding size keywords to corresponding CSS class names.
+ *
+ * @param {string} size - Padding size ('xs', 's', 'm', 'l', 'xl', 'none').
+ * @returns {string} The CSS class name for the specified padding size, or empty string if 'none' or unrecognized.
+ */
 export function parsePadding(size) {
    switch (size) {
       case 'xs':
@@ -16,6 +22,12 @@ export function parsePadding(size) {
    }
 }
 
+/**
+ * Maps border-radius size keywords to corresponding CSS class names.
+ *
+ * @param {string} size - Radius size ('xs', 's', 'm', 'l', 'xl', 'none').
+ * @returns {string} The CSS class name for the specified radius size, or empty string if 'none' or unrecognized.
+ */
 export function parseRadius(size) {
    switch (size) {
       case 'xs':
@@ -34,6 +46,12 @@ export function parseRadius(size) {
    }
 }
 
+/**
+ * Maps elevation size keywords to corresponding CSS class names.
+ *
+ * @param {string} size - Elevation size ('xs', 's', 'm', 'l', 'xl', 'none').
+ * @returns {string} The CSS class name for the specified elevation size, or empty string if 'none' or unrecognized.
+ */
 export function parseElevation(size) {
    switch (size) {
       case 'xs':
@@ -52,6 +70,14 @@ export function parseElevation(size) {
    }
 }
 
+/**
+ * Combines one or two sets of CSS class names into a single string.
+ * Accepts strings or arrays of strings and filters out falsy values.
+ *
+ * @param {string|string[]} classes - First set of class names.
+ * @param {string|string[]} merge - Second set of class names to merge.
+ * @returns {string} Combined class names separated by spaces.
+ */
 export function parseCSS(classes, merge) {
    let result = [];
 
@@ -74,6 +100,12 @@ export function parseCSS(classes, merge) {
    return result.filter(item => item).join(' ');
 }
 
+/**
+ * Formats a numeric value as Brazilian Real currency (R$) with two decimal places.
+ *
+ * @param {number} value - The numeric value to format.
+ * @returns {string} The formatted currency string in 'pt-BR' locale.
+ */
 export function parseMoney(value) {
    return new Intl.NumberFormat('pt-BR', {
       style: 'currency',
