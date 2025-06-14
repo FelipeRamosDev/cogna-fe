@@ -6,7 +6,7 @@ import { parseCSS, parsePadding, parseRadius } from "@/helpers/parse";
  * @component
  * @param {Object} props - The props for the Button component.
  * @param {string} [props.className] - Additional CSS class names to apply to the button.
- * @param {'filled'|'outlined'|'tranparent'} [props.type='filled'] - The visual type of the button.
+ * @param {'filled'|'outlined'|'transparent'} [props.type='filled'] - The visual type of the button.
  * @param {'primary'|'secondary'|'tertiary'} [props.color='primary'] - The color theme of the button. This option will only work if the type is set to "filled"
  * @param {boolean} [props.fullwidth] - If true, the button will take the full width of its container.
  * @param {'none'|'xs'|'s'|'m'|'l'} [props.padding='s'] - The internal padding size of the button.
