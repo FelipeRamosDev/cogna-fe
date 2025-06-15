@@ -5,7 +5,7 @@ import Head from 'next/head';
 
 export async function getServerSideProps(context) {
    const productID = context.query.id;
-   
+
    try {
       const { data } = await AJAX.get(`/produto/${productID}`);
 
