@@ -6,4 +6,11 @@ services:
       - "3000:3000"
     environment:
       - NODE_ENV=production
+      - API_ROOT=http://cogna-be:8000
+    networks:
+      - cogna-be_default
     restart: unless-stopped
+
+networks:
+  cogna-be_default:
+    external: true
