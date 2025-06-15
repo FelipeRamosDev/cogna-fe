@@ -28,8 +28,11 @@ export default function FileInput({
          />
 
          <label htmlFor={id} className="label">
-            {!fileValue && <span className="label-title">Escolha um arquivo</span>}
-            {fileValue && <span className="label-title">{fileValue ? fileValue.name : 'Nenhum arquivo selecionado'}</span>}
+            {fileValue ? (
+               <span className="label-title">{fileValue.name}</span>
+            ) : (
+               <span className="label-title">Escolha um arquivo</span>
+            )}
 
             <p className="label-description">Arraste ou clique para escolher seu arquivo JSON com os produtos para importação.</p>
          </label>
