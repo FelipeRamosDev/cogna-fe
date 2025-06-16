@@ -1,14 +1,16 @@
 import { useState } from 'react';
 import { Button, Container } from '@/components/common';
 import FileInput from '@/components/inputs/FileInput/FileInput';
-import useAjax from '@/hooks/useAjax';
-import { useRouter } from 'next/navigation';
+import axios from 'axios';
+
+const AJAX = axios.create({
+   baseURL: process.env.NEXT_PUBLIC_API_ROOT,
+   timeout: 30000
+});
 
 export default function ImportContent() {
    const [ file, setFile ] = useState(null);
    const [ loading, setLoading ] = useState(false);
-   const router = useRouter();
-   const AJAX = useAjax();
 
    const handleSubmit = async (event) => {
       event.preventDefault();
