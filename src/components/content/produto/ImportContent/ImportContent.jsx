@@ -1,22 +1,24 @@
 import { useState } from 'react';
 import { Button, Container } from '@/components/common';
 import FileInput from '@/components/inputs/FileInput/FileInput';
-import AJAX from '@/services/AJAX';
+import useAjax from '@/hooks/useAjax';
+import { useRouter } from 'next/navigation';
 
 export default function ImportContent() {
    const [ file, setFile ] = useState(null);
    const [ loading, setLoading ] = useState(false);
+   const router = useRouter();
+   const AJAX = useAjax();
 
    const handleSubmit = async (event) => {
       event.preventDefault();
-      
-      setLoading(true);
+
       const formData = new FormData(event.target);
       formData.append("file", file);
 
       try {
          const res = await AJAX.post('/produto/importar', formData);
-         console.log('Produtos importados com sucesso:', res.data);
+         router.push('/');
       } catch (error) {
          console.error('Error importing products:', error);
       } finally {
