@@ -18,7 +18,7 @@ export default function ImportContent() {
 
       try {
          const res = await AJAX.post('/produto/importar', formData);
-         router.push('/');
+         console.log('Import response:', res);
       } catch (error) {
          console.error('Error importing products:', error);
       } finally {
