@@ -7,6 +7,7 @@ services:
     environment:
       - NODE_ENV=production
       - API_ROOT=http://cogna-be:8000
+      - API_ROOT_NEXT_PUBLIC=http://localhost:8000
     networks:
       - cogna-be_default
     restart: unless-stopped
