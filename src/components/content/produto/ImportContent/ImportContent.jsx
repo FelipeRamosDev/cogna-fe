@@ -5,10 +5,12 @@ import AJAX from '@/services/AJAX';
 
 export default function ImportContent() {
    const [ file, setFile ] = useState(null);
+   const [ loading, setLoading ] = useState(false);
 
    const handleSubmit = async (event) => {
       event.preventDefault();
       
+      setLoading(true);
       const formData = new FormData(event.target);
       formData.append("file", file);
 
@@ -17,6 +19,9 @@ export default function ImportContent() {
          console.log('Produtos importados com sucesso:', res.data);
       } catch (error) {
          console.error('Error importing products:', error);
+      } finally {
+         setLoading(false);
+         setFile(null);
       }
    }
 
@@ -31,7 +36,7 @@ export default function ImportContent() {
 
          <form onSubmit={handleSubmit}>
             <FileInput className="import-input" fileValue={file} onChange={handleChange} />
-            <Button type="submit" variant="filled" color="tertiary" fullwidth disabled={Boolean(file)}>Importar</Button>
+            <Button type="submit" variant="filled" color="tertiary" fullwidth disabled={loading}>{loading ? 'Importando...' : 'Importar'}</Button>
          </form>
       </Container>
    );
