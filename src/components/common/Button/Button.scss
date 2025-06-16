@@ -12,6 +12,11 @@
       transform: scale(0.995);
    }
 
+   &:disabled {
+      cursor: not-allowed;
+      background-color: $disabled;
+   }
+
    &.fullwidth {
       width: 100%;
    }

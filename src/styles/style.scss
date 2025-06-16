@@ -10,6 +10,8 @@
 @use '@/components/grids/ProductsGrid/ProductsGrid.scss';
 @use '@/components/layout/PageBase/PageBase.scss';
 @use '@/components/tiles/ProductTile/ProductTile.scss';
+@use '@/components/inputs/FileInput/FileInput.scss';
 
 // Contents
-@use '@/components/content/ProductContent/ProductContent.scss';
+@use '@/components/content/produto/ProductContent/ProductContent.scss';
+@use '@/components/content/produto/ImportContent/ImportContent.scss';

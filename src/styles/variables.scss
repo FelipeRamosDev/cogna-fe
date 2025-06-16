@@ -11,6 +11,8 @@ $tertiary-light: color.adjust($tertiary, $lightness: 5%, $saturation: -5%);
 $text: color.adjust($primary, $lightness: 80%);
 $text-soft: color.adjust($primary, $lightness: 40%, $saturation: -95%);
 $text-contrast: color.adjust($primary, $lightness: -80%);
+$disabled: color.adjust($primary, $lightness: 90%, $saturation: -100%);
+
 $background: color.adjust($primary, $lightness: -15%, $saturation: -70%);
 $background-light: color.adjust($primary, $lightness: -10%, $saturation: -80%);
 
