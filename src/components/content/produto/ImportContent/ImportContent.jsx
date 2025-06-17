@@ -1,8 +1,8 @@
+import axios from 'axios';
 import { useState } from 'react';
+import { useRouter } from 'next/navigation';
 import { Button, Container } from '@/components/common';
 import FileInput from '@/components/inputs/FileInput/FileInput';
-import axios from 'axios';
-import { useRouter } from 'next/navigation';
 
 export default function ImportContent({ CLIENT_API_ROOT = 'http://localhost:8000' }) {
    const [ file, setFile ] = useState(null);
@@ -68,7 +68,7 @@ export default function ImportContent({ CLIENT_API_ROOT = 'http://localhost:8000
             </pre>
          </details>
 
-         <form onSubmit={handleSubmit}>
+         <form onSubmit={handleSubmit} encType="multipart/form-data">
             <FileInput className="import-input" fileValue={file} onChange={handleChange} />
 
             <Button type="submit" variant="filled" color="tertiary" fullwidth disabled={loading}>
