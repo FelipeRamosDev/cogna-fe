@@ -42,6 +42,10 @@ Este projeto é um teste técnico desenvolvido para a Cogna, com foco em boas pr
 
 </details>
 
+#### Teste a aplicação na nuvem
+Você pode acessar a aplicação hospedada na nuvem através do seguinte link: [Cogna Frontend](http://91.99.8.161:3000/).
+- Como está sem SSL, pode ser necessário aceitar o aviso de segurança do navegador.
+
 ## Principais decisões técnicas
 ### 1. Roteamento baseado em `/pages` com Server Side Rendering (SSR)
 Optei por utilizar a abordagem de roteamento baseada na pasta `/pages`, pois ela simplifica a configuração das rotas e torna o mapeamento entre URLs e componentes mais intuitivo. Além disso, utilizei Server Side Rendering (SSR) para as duas rotas otimizando o carregamento inicial das páginas e melhorar o SEO, permitindo que mecanismos de busca indexem o conteúdo de forma mais eficiente e proporcionando uma experiência mais rápida para o usuário, especialmente em buscas e acessos diretos.
