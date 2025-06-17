@@ -1,15 +1,16 @@
 # Cogna - Teste Tecnico - Frontend
 Este projeto é um teste técnico desenvolvido para a Cogna, com foco em boas práticas de arquitetura, organização de código e experiência do usuário. As principais decisões técnicas incluem o uso de roteamento baseado em arquivos na pasta `/pages` com Server Side Rendering (SSR), estruturação dos componentes por pastas dedicadas e modularização da interface em componentes reutilizáveis. Essas escolhas trazem vantagens como maior clareza na organização do código, facilidade de manutenção e refatoração, melhor desempenho inicial das páginas, SEO aprimorado e escalabilidade para o crescimento do projeto.
 
-## Instalação com Docker
+## Instalação com Docker Compose
 1. Certifique-se de ter o Docker instalado em sua máquina.
-2. Rode o seguinte comando para criar uma rede Docker e iniciar o container do backend, caso você já tenha criado a rede, pode pular este passo:
+2. Clone o repositório:
    ```bash
-   docker network create cogna-net
+   git clone https://github.com/FelipeRamosDev/cogna-fe.git
+   cd cogna-fe
    ```
-3. Rode o seguinte comando para iniciar o container do backend:
+3. Rode o seguinte comando para iniciar os containers do frontend:
    ```bash
-   docker run -d --name cogna-fe --network cogna-net -p 3000:3000 feliperamosdevelop/cogna-fe:latest
+   docker-compose up --build -d
    ```
 
 <details>
@@ -72,3 +73,7 @@ export { default as Button } from './Button/Button';
 
 ### 3. Modularização da UI
 A interface foi quebrada em pequenos componentes reutilizáveis e independentes. Essa modularização facilita a manutenção, testes e reutilização dos componentes em diferentes partes do projeto, além de tornar o desenvolvimento mais ágil e organizado.
+
+### 4. Extras - Diferenciais (Opcionais)
+#### **Implementação do Docker:**
+O projeto agora pode ser executado em containers Docker, usando arquivos `Dockerfile` e `docker-compose.yml` para orquestrar o frontend. Basta rodar `docker-compose up --build` para iniciar tudo integrado.
