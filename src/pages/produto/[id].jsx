@@ -5,7 +5,7 @@ import Head from 'next/head';
 
 export async function getServerSideProps(context) {
    const productID = context.query.id;
-   
+
    try {
       const { data } = await AJAX.get(`/produto/${productID}`);
 
@@ -18,6 +18,15 @@ export async function getServerSideProps(context) {
 }
 
 export default function Product({ product }) {
+   if (!product) {
+      return (
+         <PageBase>
+            <h1>Produto não encontrado</h1>
+            <p>O produto solicitado não existe ou foi removido.</p>
+         </PageBase>
+      );
+   }
+
    const META_TITLE = `Cogna - ${product.name}`;
    const META_DESCRIPTION = product.description;
    const META_KEYWORDS = `produtos, loja, cogna, comprar, ecommerce, ${product.name}`;

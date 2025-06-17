@@ -1,30 +1,50 @@
 # Cogna - Teste Tecnico - Frontend
 Este projeto é um teste técnico desenvolvido para a Cogna, com foco em boas práticas de arquitetura, organização de código e experiência do usuário. As principais decisões técnicas incluem o uso de roteamento baseado em arquivos na pasta `/pages` com Server Side Rendering (SSR), estruturação dos componentes por pastas dedicadas e modularização da interface em componentes reutilizáveis. Essas escolhas trazem vantagens como maior clareza na organização do código, facilidade de manutenção e refatoração, melhor desempenho inicial das páginas, SEO aprimorado e escalabilidade para o crescimento do projeto.
 
-## Instalação sem Docker
-1. Certifique-se de ter o [Node.js](https://nodejs.org/) instalado (versão 18 ou superior recomendada).
+## Instalação com Docker Compose
+1. Certifique-se de ter o Docker instalado em sua máquina.
 2. Clone o repositório:
    ```bash
    git clone https://github.com/FelipeRamosDev/cogna-fe.git
    cd cogna-fe
    ```
+3. Rode o seguinte comando para iniciar os containers do frontend:
+   ```bash
+   docker-compose up --build -d
+   ```
+
+<details>
+   <summary><strong>Instalação sem Docker</strong></summary>
+
+1. Certifique-se de ter o [Node.js](https://nodejs.org/) instalado (versão 18 ou superior recomendada).
+2. Clone o repositório:
+    ```bash
+    git clone https://github.com/FelipeRamosDev/cogna-fe.git
+    cd cogna-fe
+    ```
 3. Instale as dependências:
-   ```bash
-   npm install
-   ```
+    ```bash
+    npm install
+    ```
 4. Crie um arquivo `.env` na raiz do projeto com as seguintes variáveis de ambiente:
-   ```env
-   API_ROOT=http://localhost:8000
-   ```
+    ```env
+    API_ROOT=http://localhost:8000
+    ```
 5. Rode o build de produção:
-   ```bash
-   npm run build
-   ```
+    ```bash
+    npm run build
+    ```
 6. Inicie o servidor de desenvolvimento:
-   ```bash
-   npm run start
-   ```
+    ```bash
+    npm run start
+    ```
 7. Acesse o projeto em [http://localhost:3000](http://localhost:3000).
+
+</details>
+
+#### Teste a aplicação na nuvem
+Você pode acessar a aplicação hospedada na nuvem através do seguinte link: [Cogna Frontend](http://91.99.8.161:3000/).
+- Como está sem SSL, pode ser necessário aceitar o aviso de segurança do navegador.
 
 ## Principais decisões técnicas
 ### 1. Roteamento baseado em `/pages` com Server Side Rendering (SSR)
@@ -57,3 +77,7 @@ export { default as Button } from './Button/Button';
 
 ### 3. Modularização da UI
 A interface foi quebrada em pequenos componentes reutilizáveis e independentes. Essa modularização facilita a manutenção, testes e reutilização dos componentes em diferentes partes do projeto, além de tornar o desenvolvimento mais ágil e organizado.
+
+### 4. Extras - Diferenciais (Opcionais)
+#### **Implementação do Docker:**
+O projeto agora pode ser executado em containers Docker, usando arquivos `Dockerfile` e `docker-compose.yml` para orquestrar o frontend. Basta rodar `docker-compose up --build` para iniciar tudo integrado.
