@@ -1,0 +1,18 @@
+@use '@/styles/variables.scss' as *;
+
+.FormControl {
+   .line-inputs {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      margin-bottom: 1rem;
+
+      .Input {
+         margin-bottom: 0;
+      }
+
+      @media screen and (min-width: $screen-m) {
+         flex-direction: row;         
+      }
+   }
+}

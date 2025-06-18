@@ -24,6 +24,7 @@ const Input = forwardRef(({
             ref={ref}
             id={id}
             name={name}
+            type={type}
             placeholder={placeholder}
             className="native-input"
             onChange={onChange}

@@ -59,11 +59,16 @@ a {
   color: $text;
   transition: all 100ms;
 
-  &:hover {
+  &:hover,
+  &.link:hover {
     color: $tertiary;
   }
 
   &:visited {
     color: $text;
+  }
+
+  &.link {
+    text-decoration: underline;
   }
 }
