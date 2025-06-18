@@ -4,14 +4,25 @@ $primary: #006C67;
 $secondary: #0D1B2A;
 $tertiary: #8FE388;
 
-$primary-light: color.adjust($primary, $lightness: 5%, $saturation: -5%);
-$secondary-light: color.adjust($secondary, $lightness: 5%, $saturation: -5%);
-$tertiary-light: color.adjust($tertiary, $lightness: 5%, $saturation: -5%);
+// Standard Values
+$size-multiplier: 1.618;
+$lightness-light: 5%;
+$saturation-light: -5%;
+$lightness-dark: -15%;
+$saturation-dark: -20%;
+
+$primary-light: color.adjust($primary, $lightness: $lightness-light, $saturation: $saturation-light);
+$secondary-light: color.adjust($secondary, $lightness: $lightness-light, $saturation: $saturation-light);
+$tertiary-light: color.adjust($tertiary, $lightness: $lightness-light, $saturation: $saturation-light);
+
+$primary-dark: color.adjust($primary, $lightness: $lightness-dark, $saturation: $saturation-dark);
+$secondary-dark: color.adjust($secondary, $lightness: $lightness-dark, $saturation: $saturation-dark);
+$tertiary-dark: color.adjust($tertiary, $lightness: $lightness-dark, $saturation: $saturation-dark);
 
 $text: color.adjust($primary, $lightness: 80%);
 $text-soft: color.adjust($primary, $lightness: 40%, $saturation: -95%);
 $text-contrast: color.adjust($primary, $lightness: -80%);
-$disabled: color.adjust($primary, $lightness: 90%, $saturation: -100%);
+$disabled: color.adjust($primary, $lightness: 15%, $saturation: -95%);
 
 $background: color.adjust($primary, $lightness: -15%, $saturation: -70%);
 $background-light: color.adjust($primary, $lightness: -10%, $saturation: -80%);
@@ -25,8 +36,6 @@ $screen-s: 425px;
 $screen-m: 768px;
 $screen-l: 1024px;
 $screen-xl: 1440px;
-
-$size-multiplier: 1.618;
 
 // Paddings
 $padding-xs: 0.4rem;
