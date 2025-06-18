@@ -1,3 +1,4 @@
+import { Button } from "@/components/common";
 import Link from "next/link";
 
 /**
@@ -11,8 +12,11 @@ import Link from "next/link";
 export default function TopNavigation() {
    return (
       <nav>
-         <Link href="/">Home</Link>{' '}
-         <Link href="/produto/importar">Importar Produtos</Link>
+         <Link href="/" >Home</Link>
+         <Link href="/produto/importar">Importar</Link>
+         <Link href="/login">
+            <Button title="Faça login da sua conta">Login</Button>
+         </Link>
       </nav>
    );
 }

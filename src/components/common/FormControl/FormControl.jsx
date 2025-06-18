@@ -24,7 +24,6 @@ const FormProvider = ({ className, children, submitLabel = 'Enviar', initialValu
 
    const handleSubmit = (event) => {
       event.preventDefault();
-
       onSubmit(values, errors, event);
    };
 
