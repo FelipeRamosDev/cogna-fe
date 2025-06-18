@@ -23,10 +23,10 @@ const Input = forwardRef(({
          <input
             ref={ref}
             id={id}
-            type={type}
             name={name}
             placeholder={placeholder}
             className="native-input"
+            onChange={onChange}
             {...props}
          />
       </div>
