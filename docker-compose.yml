@@ -6,7 +6,7 @@ services:
       - "3000:3000"
     environment:
       - API_ROOT=http://cogna-be:8000
-      - CLIENT_API_ROOT=http://localhost:8000
+      - CLIENT_API_ROOT=http://localhost:8000  # Se você for rodar o frontend em uma rede diferente do backend, ajuste essa URL para apontar corretamente as requisições para o backend.
     networks:
       - cogna-be_default
     restart: unless-stopped
