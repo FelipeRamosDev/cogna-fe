@@ -3,7 +3,7 @@ import { LoginContent } from '@/components/content';
 import Head from 'next/head';
 
 export default function Login() {
-  const META_TITLE = 'Cogna - LLogin de usuário';
+  const META_TITLE = 'Cogna - Login de usuário';
   const META_DESCRIPTION = 'Página de login do usuário.';
   const META_KEYWORDS = 'login, cogna, autenticação';
   const META_AUTHOR = 'Felipe Ramos';
