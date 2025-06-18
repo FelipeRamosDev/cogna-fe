@@ -30,7 +30,6 @@ const FormProvider = ({ className, children, submitLabel = 'Enviar', initialValu
 
    return (
       <FormContext.Provider
-         className={CSS}
          value={{
             values,
             errors,
@@ -39,7 +38,7 @@ const FormProvider = ({ className, children, submitLabel = 'Enviar', initialValu
             resetForm,
          }}
       >
-         <form onSubmit={handleSubmit} {...props}>
+         <form className={CSS} onSubmit={handleSubmit} {...props}>
             {children}
 
             <div className="form-actions">

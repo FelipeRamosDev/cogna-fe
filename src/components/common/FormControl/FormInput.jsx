@@ -12,7 +12,7 @@ export default function FormInput({ id, fieldName = '', type = 'text', ...props 
       case 'tel':
       default:
          return <Input
-            id={`forminput-${fieldName}` || id}
+            id={id || `forminput-${fieldName}`}
             type={type}
             name={fieldName}
             value={values[fieldName] || ''}
