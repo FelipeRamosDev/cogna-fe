@@ -2,7 +2,7 @@ import axios from 'axios';
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { Button, Container } from '@/components/common';
-import FileInput from '@/components/inputs/FileInput/FileInput';
+import { FileInput } from '@/components/inputs';
 
 export default function ImportContent({ CLIENT_API_ROOT = 'http://localhost:8000' }) {
    const [ file, setFile ] = useState(null);
