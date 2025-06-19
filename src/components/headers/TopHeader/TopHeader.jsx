@@ -1,5 +1,6 @@
 import { Container } from "@/components/common";
 import { TopNavigation } from "@/components/menus";
+import { AuthProvider, useAuth } from "@/providers/AuthContext";
 import Link from "next/link";
 
 /**
@@ -12,6 +13,9 @@ import Link from "next/link";
  * @returns {JSX.Element} The top header section of the app.
  */
 export default function HeaderBase() {
+   const auth = useAuth();
+   const user = auth?.user;
+
    return (
       <header className="TopHeader">
          <Container>
@@ -19,7 +23,9 @@ export default function HeaderBase() {
                <span>CognaShop</span>
             </Link>
 
-            <TopNavigation />
+            <AuthProvider loadedUser={user} renderIfLoading>
+               <TopNavigation />
+            </AuthProvider>
          </Container>
       </header>
    );
