@@ -11,7 +11,7 @@ export async function getServerSideProps() {
 
 export default function Import({ CLIENT_API_ROOT }) {
    return (
-      <PageBase>
+      <PageBase authProtected>
          <ImportContent CLIENT_API_ROOT={CLIENT_API_ROOT} />
       </PageBase>
    );

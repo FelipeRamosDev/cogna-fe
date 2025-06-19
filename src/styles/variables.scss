@@ -22,7 +22,7 @@ $tertiary-dark: color.adjust($tertiary, $lightness: $lightness-dark, $saturation
 $text: color.adjust($primary, $lightness: 80%);
 $text-soft: color.adjust($primary, $lightness: 40%, $saturation: -95%);
 $text-contrast: color.adjust($primary, $lightness: -80%);
-$disabled: color.adjust($primary, $lightness: 15%, $saturation: -95%);
+$disabled: color.adjust($primary, $lightness: 10%, $saturation: -95%);
 
 $background: color.adjust($primary, $lightness: -15%, $saturation: -70%);
 $background-light: color.adjust($primary, $lightness: -10%, $saturation: -80%);
