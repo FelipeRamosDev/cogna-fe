@@ -1,8 +1,25 @@
+import { useRouter } from 'next/navigation';
 import { FormControl, FormInput } from '@/components/common';
+import Ajax from '@/services/AJAX';
 
 export default function RegisterForm() {
-   const handleSubmit = (data) => {
-      console.log('Formulário de login', data);
+   const router = useRouter();
+
+   const handleSubmit = async (data) => {
+      const ajax = Ajax(process.env.NEXT_PUBLIC_API_ROOT);
+      
+      try {
+         const registerUser = await ajax.put('/auth/cadastro', data);
+
+         if (!registerUser.data.success) {
+            throw registerUser;
+         }
+
+         router.push('/');
+      } catch (error) {
+         const errorData = error.response ? error.response.data : error;
+         console.error(errorData);
+      }
    };
 
    return (
