@@ -15,7 +15,7 @@ export default function TopNavigation() {
          <Link href="/" >Home</Link>
          <Link href="/produto/importar">Importar</Link>
          <Link href="/login">
-            <Button title="Faça login da sua conta">Login</Button>
+            <Button title="Faça login da sua conta" color="tertiary">Login</Button>
          </Link>
       </nav>
    );

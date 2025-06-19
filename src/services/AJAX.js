@@ -1,8 +1,8 @@
 import axios from 'axios';
 
-const AJAX = axios.create({
-   baseURL: process.env.API_ROOT || 'http://localhost:8000',
-   timeout: 30000
+export default (API_ROOT, options) => axios.create({
+   baseURL: API_ROOT || process.env.API_ROOT || 'http://localhost:8000',
+   withCredentials: true,
+   timeout: 30000,
+   ...options
 });
-
-export default AJAX;
