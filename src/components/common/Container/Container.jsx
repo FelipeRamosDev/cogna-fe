@@ -1,4 +1,4 @@
-import { parseCSS } from '@/helpers/parse';
+import { parseCSS } from '@/utils/parse';
 
 /**
  * Renders a layout Container component with optional custom styling.
@@ -14,7 +14,7 @@ export default function Container({ className, children }) {
    const classes = parseCSS(className, 'Container');
 
    return (
-      <div className={classes}>
+      <div className={classes} data-testid="container">
          {children}
       </div>
    );
