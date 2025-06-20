@@ -22,7 +22,7 @@ export default function Card({ className = '', padding = 'm', radius = 'm', elev
    ]);
 
    return (
-      <div className={classes}>
+      <div className={classes} data-testid="card">
          {children}
       </div>
    );
