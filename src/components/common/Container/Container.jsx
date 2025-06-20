@@ -14,7 +14,7 @@ export default function Container({ className, children }) {
    const classes = parseCSS(className, 'Container');
 
    return (
-      <div className={classes}>
+      <div className={classes} data-testid="container">
          {children}
       </div>
    );
