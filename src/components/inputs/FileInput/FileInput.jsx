@@ -1,4 +1,4 @@
-import { parseCSS, parsePadding, parseRadius } from '@/helpers/parse';
+import { parseCSS, parsePadding, parseRadius } from '@/utils/parse';
 
 export default function FileInput({
    className,

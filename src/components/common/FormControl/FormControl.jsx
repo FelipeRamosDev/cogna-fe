@@ -1,4 +1,4 @@
-import { parseCSS } from '@/helpers/parse';
+import { parseCSS } from '@/utils/parse';
 import { createContext, useContext, useState, useCallback } from 'react';
 import { Button } from '..';
 

@@ -1,4 +1,4 @@
-import { parseCSS } from '@/helpers/parse';
+import { parseCSS } from '@/utils/parse';
 
 /**
  * Renders a layout Container component with optional custom styling.

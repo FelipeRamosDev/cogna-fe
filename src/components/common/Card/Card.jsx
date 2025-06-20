@@ -1,4 +1,4 @@
-import { parseCSS, parseElevation, parsePadding, parseRadius } from '@/helpers/parse';
+import { parseCSS, parseElevation, parsePadding, parseRadius } from '@/utils/parse';
 
 /**
  * Card component that wraps its children with customizable padding and optional additional classes.

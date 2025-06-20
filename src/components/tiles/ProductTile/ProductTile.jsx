@@ -1,5 +1,5 @@
 import { Card, ImagePlaceholder } from '@/components/common';
-import { parseCSS, parseMoney } from '@/helpers/parse';
+import { parseCSS, parseMoney } from '@/utils/parse';
 
 /**
  * Displays a compact tile view of a product, including image placeholder, name, price, category, and description.
