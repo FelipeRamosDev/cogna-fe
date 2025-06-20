@@ -76,5 +76,11 @@ export { default as Button } from './Button/Button';
 A interface foi quebrada em pequenos componentes reutilizáveis e independentes. Essa modularização facilita a manutenção, testes e reutilização dos componentes em diferentes partes do projeto, além de tornar o desenvolvimento mais ágil e organizado.
 
 ### 4. Extras - Diferenciais (Opcionais)
+#### **Autenticação de usuários com Sessão:**
+A autenticação de usuários foi implementada utilizando sessões, garantindo que as informações do usuário sejam mantidas durante a navegação. Isso foi feito através do uso de cookies e com token JSON Web Token (JWT).
 #### **Implementação do Docker:**
 O projeto agora pode ser executado em containers Docker, usando arquivos `Dockerfile` e `docker-compose.yml` para orquestrar o frontend. Basta rodar `docker-compose up --build` para iniciar tudo integrado.
+#### **Testes unitários:**
+Foram implementados testes unitários para os componentes principais, garantindo que a lógica e a renderização estejam corretas. Os testes podem ser executados com o comando `npm run test`.
+#### **GitHub Actions (CI):**
+Foi configurado um pipeline de CI com GitHub Actions para automatizar o processo de build e testes a cada push ou pull request.
