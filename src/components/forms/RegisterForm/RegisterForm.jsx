@@ -16,9 +16,10 @@ export default function RegisterForm() {
          }
 
          router.push('/');
+         return registerUser.data;
       } catch (error) {
          const errorData = error.response ? error.response.data : error;
-         console.error(errorData);
+         return errorData;
       }
    };
 

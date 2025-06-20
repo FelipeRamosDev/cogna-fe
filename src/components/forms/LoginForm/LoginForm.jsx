@@ -23,9 +23,10 @@ export default function LoginForm() {
          }
 
          router.push('/');
+         return loginUser.data;
       } catch (error) {
          const errorData = error.response ? error.response.data : error;
-         console.error(errorData);
+         return errorData;
       }
    };
 
