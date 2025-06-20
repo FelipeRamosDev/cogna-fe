@@ -50,7 +50,7 @@ export default function ImportContent({ CLIENT_API_ROOT = 'http://localhost:8000
          <h1 className="page-title">Importar Produtos</h1>
          <p className="page-description">Carregue seus produtos em um JSON para importá-los.</p>
 
-         <details>
+         <details className="code-example-accordeon">
             <summary>Exemplo de JSON</summary>
 
             <pre className="code-example">
