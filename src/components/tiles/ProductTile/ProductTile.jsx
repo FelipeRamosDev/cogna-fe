@@ -26,7 +26,7 @@ export default function ProductTile({ product, className = '' }) {
    }
 
    return (
-      <Card className={classes} elevation="l" padding="none">
+      <Card className={classes} elevation="l" padding="none" radius="s">
          <ImagePlaceholder />
 
          <div className="product-info">
