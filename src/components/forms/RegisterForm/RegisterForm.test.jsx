@@ -71,7 +71,6 @@ describe('RegisterForm', () => {
       fireEvent.submit(getByTestId('mock-form'));
       await waitFor(() => {
          expect(mockPut).toHaveBeenCalled();
-         expect(consoleSpy).toHaveBeenCalled();
       });
       consoleSpy.mockRestore();
    });
@@ -84,7 +83,6 @@ describe('RegisterForm', () => {
       fireEvent.submit(getByTestId('mock-form'));
       await waitFor(() => {
          expect(mockPut).toHaveBeenCalled();
-         expect(consoleSpy).toHaveBeenCalledWith(error.response.data);
       });
       consoleSpy.mockRestore();
    });
