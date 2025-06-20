@@ -1,0 +1,13 @@
+@use '@/styles/variables' as *;
+
+.LoginContent {
+   .login-card {
+      margin: 0 auto;
+      max-width: $screen-m;
+      text-align: center;
+   }
+
+   .form-options {
+      margin-top: 1rem;
+   }
+}

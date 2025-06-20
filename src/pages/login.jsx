@@ -1,26 +1,11 @@
 import { PageBase } from '@/components/layout';
-import { HomeContent } from '@/components/content';
-import Ajax from '@/services/AJAX';
+import { LoginContent } from '@/components/content';
 import Head from 'next/head';
 
-export async function getServerSideProps() {
-  const ajax = Ajax();
-
-  try {
-    const { data } = await ajax.get('/');
-
-    return {
-      props: { products: data.products }
-    };
-  } catch (error) {
-    return { props: { error: true, errorMsg: error.message }};
-  }
-}
-
-export default function HomePage({ products }) {
-  const META_TITLE = 'Cogna - Todos produtos';
-  const META_DESCRIPTION = 'Página principal com listagem de todos os produtos da loja.';
-  const META_KEYWORDS = 'produtos, loja, cogna, comprar, ecommerce';
+export default function Login() {
+  const META_TITLE = 'Cogna - Login de usuário';
+  const META_DESCRIPTION = 'Página de login do usuário.';
+  const META_KEYWORDS = 'login, cogna, autenticação';
   const META_AUTHOR = 'Felipe Ramos';
   const META_IMAGE = 'http://localhost/og-image.jpg';
   const META_URL = 'http://localhost/';
@@ -44,7 +29,7 @@ export default function HomePage({ products }) {
         <link rel="canonical" href={META_URL} />
       </Head>
 
-      <HomeContent products={products} />
+      <LoginContent />
     </PageBase>
   );
 }
