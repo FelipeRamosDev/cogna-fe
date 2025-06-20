@@ -14,7 +14,7 @@ describe('FormInput component', () => {
    it('renders with default type and value', () => {
       render(
          <FormProvider initialValues={{ name: 'John' }} onSubmit={jest.fn()}>
-            <FormInput fieldName="name" />
+            <FormInput id="mock-input" fieldName="name" />
          </FormProvider>
       );
       const input = screen.getByTestId('mock-input');
@@ -26,7 +26,7 @@ describe('FormInput component', () => {
    it('updates value on change', () => {
       render(
          <FormProvider initialValues={{ name: '' }} onSubmit={jest.fn()}>
-            <FormInput fieldName="name" />
+            <FormInput id="mock-input" fieldName="name" />
          </FormProvider>
       );
       const input = screen.getByTestId('mock-input');
@@ -37,7 +37,7 @@ describe('FormInput component', () => {
    it('supports different input types', () => {
       render(
          <FormProvider initialValues={{ age: 30 }} onSubmit={jest.fn()}>
-            <FormInput fieldName="age" type="number" />
+            <FormInput id="mock-input" fieldName="age" type="number" />
          </FormProvider>
       );
       const input = screen.getByTestId('mock-input');
@@ -48,7 +48,7 @@ describe('FormInput component', () => {
    it('passes extra props to the input', () => {
       render(
          <FormProvider initialValues={{ email: '' }} onSubmit={jest.fn()}>
-            <FormInput fieldName="email" type="email" placeholder="Type your email" />
+            <FormInput id="mock-input" fieldName="email" type="email" placeholder="Type your email" />
          </FormProvider>
       );
       const input = screen.getByTestId('mock-input');

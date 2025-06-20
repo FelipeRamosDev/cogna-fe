@@ -23,6 +23,7 @@ export default function FormInput({ id, fieldName = '', type = 'text', ...props 
       default:
          return <Input
             id={id || `forminput-${fieldName}`}
+            data-testid={id || `forminput-${fieldName}`}
             type={type}
             name={fieldName}
             value={values[fieldName] || ''}

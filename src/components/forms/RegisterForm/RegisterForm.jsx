@@ -12,13 +12,15 @@ export default function RegisterForm() {
          const registerUser = await ajax.put('/auth/cadastro', data);
 
          if (!registerUser.data.success) {
-            throw registerUser;
+            const errorData = registerUser.response ? registerUser.response.data : registerUser;
+            return errorData;
          }
 
          router.push('/');
+         return registerUser.data;
       } catch (error) {
          const errorData = error.response ? error.response.data : error;
-         console.error(errorData);
+         return errorData;
       }
    };
 

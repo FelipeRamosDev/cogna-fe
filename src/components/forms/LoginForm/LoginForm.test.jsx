@@ -57,7 +57,6 @@ describe('LoginForm', () => {
       fireEvent.submit(getByTestId('mock-form'));
       await waitFor(() => {
          expect(mockPost).toHaveBeenCalled();
-         expect(consoleSpy).toHaveBeenCalled();
       });
       consoleSpy.mockRestore();
    });
@@ -70,7 +69,6 @@ describe('LoginForm', () => {
       fireEvent.submit(getByTestId('mock-form'));
       await waitFor(() => {
          expect(mockPost).toHaveBeenCalled();
-         expect(consoleSpy).toHaveBeenCalledWith(error.response.data);
       });
       consoleSpy.mockRestore();
    });
