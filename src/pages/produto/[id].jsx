@@ -3,6 +3,13 @@ import Ajax from '@/services/AJAX';
 import { ProductContent } from '@/components/content';
 import { PageBase } from '@/components/layout';
 
+/**
+ * getServerSideProps fetches product data for the given product ID from the backend API.
+ * Returns product data as props or an error if not found.
+ *
+ * @param {object} context - Next.js context object containing query params.
+ * @returns {Promise<{props: {product?: object, error?: boolean, errorMsg?: string}}>} Props for the page.
+ */
 export async function getServerSideProps(context) {
    const productID = context.query.id;
    const ajax = Ajax();
@@ -18,6 +25,14 @@ export async function getServerSideProps(context) {
    }
 }
 
+/**
+ * Product page component for displaying a single product's details.
+ * Shows meta tags for SEO and renders ProductContent or a not found message.
+ *
+ * @param {object} props
+ * @param {object} [props.product] - Product data to display.
+ * @returns {JSX.Element}
+ */
 export default function Product({ product }) {
    if (!product) {
       return (

@@ -2,6 +2,12 @@ import { Card, Container } from '@/components/common';
 import { LoginForm, RegisterForm } from '@/components/forms';
 import { useState } from 'react';
 
+/**
+ * LoginContent component for user authentication UI.
+ * Displays login and registration forms, allowing users to switch between them.
+ *
+ * @returns {JSX.Element}
+ */
 export default function LoginContent() {
    const [ formType, setFormType ] = useState('login');
 
