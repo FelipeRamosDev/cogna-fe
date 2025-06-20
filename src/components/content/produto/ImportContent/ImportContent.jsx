@@ -1,10 +1,17 @@
-import axios from 'axios';
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { Button, Container } from '@/components/common';
 import { FileInput } from '@/components/inputs';
 import Ajax from '@/services/AJAX';
 
+/**
+ * ImportContent component for importing products via JSON file upload.
+ * Handles file selection, form submission, and displays a JSON example for users.
+ *
+ * @param {object} props
+ * @param {string} [props.CLIENT_API_ROOT='http://localhost:8000'] - API root URL for backend requests.
+ * @returns {JSX.Element}
+ */
 export default function ImportContent({ CLIENT_API_ROOT = 'http://localhost:8000' }) {
    const [ file, setFile ] = useState(null);
    const [ loading, setLoading ] = useState(false);

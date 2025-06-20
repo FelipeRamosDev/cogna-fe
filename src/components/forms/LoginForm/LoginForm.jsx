@@ -2,6 +2,13 @@ import { useRouter } from 'next/navigation';
 import { FormControl, FormInput } from '@/components/common';
 import Ajax from '@/services/AJAX';
 
+/**
+ * LoginForm component for user authentication.
+ * Renders a form for email and password, and handles login submission.
+ * On successful login, redirects the user to the home page.
+ *
+ * @returns {JSX.Element}
+ */
 export default function LoginForm() {
    const router = useRouter();
 

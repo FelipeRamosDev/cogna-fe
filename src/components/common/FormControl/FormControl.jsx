@@ -1,9 +1,26 @@
 import { parseCSS } from '@/utils/parse';
-import { createContext, useContext, useState, useCallback } from 'react';
+import { createContext, useContext, useState } from 'react';
 import { Button } from '..';
 
+/**
+ * React Context for form state management.
+ * Provides values, errors, and field setters to child components.
+ * @type {React.Context<{values: object, errors: object, setFieldValue: Function, setFieldError: Function, resetForm: Function}>}
+ */
 const FormContext = createContext();
 
+/**
+ * FormProvider component for managing form state and submission.
+ * Wraps children in a form context and handles value/error updates and submit events.
+ *
+ * @param {object} props
+ * @param {string} [props.className] - Additional CSS classes for the form.
+ * @param {React.ReactNode} props.children - Form fields and content.
+ * @param {string} [props.submitLabel='Enviar'] - Label for the submit button.
+ * @param {object} [props.initialValues={}] - Initial values for form fields.
+ * @param {Function} [props.onSubmit] - Callback for form submission.
+ * @returns {JSX.Element}
+ */
 const FormProvider = ({ className, children, submitLabel = 'Enviar', initialValues = {}, onSubmit = () => {}, ...props }) => {
    const [ values, setValues ] = useState(initialValues);
    const [ errors, setErrors ] = useState({});
@@ -48,6 +65,12 @@ const FormProvider = ({ className, children, submitLabel = 'Enviar', initialValu
    );
 };
 
+/**
+ * Custom hook to access form context values and helpers.
+ * Must be used within a FormProvider.
+ *
+ * @returns {{values: object, errors: object, setFieldValue: Function, setFieldError: Function, resetForm: Function}}
+ */
 const useForm = () => {
    const context = useContext(FormContext);
    if (!context) {
