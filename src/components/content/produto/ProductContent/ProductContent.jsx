@@ -1,5 +1,5 @@
 import { Container, Button, Card, ImagePlaceholder } from '@/components/common';
-import { parseMoney } from '@/helpers/parse';
+import { parseMoney } from '@/utils/parse';
 
 /**
  * Renders the detailed view of a single product, including image, name, category, price, and description.

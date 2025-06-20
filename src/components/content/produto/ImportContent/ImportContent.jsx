@@ -2,17 +2,14 @@ import axios from 'axios';
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { Button, Container } from '@/components/common';
-import FileInput from '@/components/inputs/FileInput/FileInput';
+import { FileInput } from '@/components/inputs';
+import Ajax from '@/services/AJAX';
 
 export default function ImportContent({ CLIENT_API_ROOT = 'http://localhost:8000' }) {
    const [ file, setFile ] = useState(null);
    const [ loading, setLoading ] = useState(false);
    const router = useRouter();
-
-   const AJAX = axios.create({
-      baseURL: CLIENT_API_ROOT,
-      timeout: 30000
-   });
+   const ajax = Ajax(CLIENT_API_ROOT);
 
    const handleSubmit = async (event) => {
       event.preventDefault();
@@ -22,14 +19,15 @@ export default function ImportContent({ CLIENT_API_ROOT = 'http://localhost:8000
       formData.append('file', file);
 
       try {
-         const res = await AJAX.post('/produto/importar', formData);
+         const res = await ajax.post('/produto/importar', formData);
          if (res.data.success) {
             router.push('/');
          } else {
             throw res;
          }
       } catch (error) {
-         console.error('Error importing products:', error);
+         const errorData = error.response ? error.response.data : error;
+         console.error(errorData);
       } finally {
          setLoading(false);
          setFile(null);

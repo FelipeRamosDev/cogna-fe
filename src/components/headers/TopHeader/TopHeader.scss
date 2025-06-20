@@ -13,18 +13,20 @@
    .Container {
       display: flex;
       justify-content: space-between;
+   }
 
-      .logo {
-         font-size: 1.5rem;
-         font-weight: 700;
-         -webkit-user-select: none;
-         user-select: none;
-      }
+   .logo {
+      font-size: 1.5rem;
+      font-weight: 700;
+      -webkit-user-select: none;
+      user-select: none;
+      display: flex;
+      align-items: center;
+   }
 
-      nav {
-         display: flex;
-         align-items: center;
-         gap: 1.5rem;
-      }
+   nav {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
    }
 }

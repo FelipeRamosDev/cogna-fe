@@ -1,13 +1,14 @@
-import AJAX from '@/services/AJAX';
+import Head from 'next/head';
+import Ajax from '@/services/AJAX';
 import { ProductContent } from '@/components/content';
 import { PageBase } from '@/components/layout';
-import Head from 'next/head';
 
 export async function getServerSideProps(context) {
    const productID = context.query.id;
+   const ajax = Ajax();
 
    try {
-      const { data } = await AJAX.get(`/produto/${productID}`);
+      const { data } = await ajax.get(`/produto/${productID}`);
 
       return {
          props: { product: data.product }

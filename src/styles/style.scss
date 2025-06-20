@@ -6,12 +6,16 @@
 @use '@/components/common/Card/Card.scss';
 @use '@/components/common/Container/Container.scss';
 @use '@/components/common/ImagePlaceholder/ImagePlaceholder.scss';
+@use '@/components/common/FormControl/FormControl.scss';
+@use '@/components/common/Spinner/Spinner.scss';
 @use '@/components/headers/TopHeader/TopHeader.scss';
 @use '@/components/grids/ProductsGrid/ProductsGrid.scss';
 @use '@/components/layout/PageBase/PageBase.scss';
 @use '@/components/tiles/ProductTile/ProductTile.scss';
+@use '@/components/inputs/Input/Input.scss';
 @use '@/components/inputs/FileInput/FileInput.scss';
 
 // Contents
+@use '@/components/content/LoginContent/LoginContent.scss';
 @use '@/components/content/produto/ProductContent/ProductContent.scss';
 @use '@/components/content/produto/ImportContent/ImportContent.scss';

@@ -1,11 +1,13 @@
 import { PageBase } from '@/components/layout';
 import { HomeContent } from '@/components/content';
-import AJAX from '@/services/AJAX';
+import Ajax from '@/services/AJAX';
 import Head from 'next/head';
 
 export async function getServerSideProps() {
+  const ajax = Ajax();
+
   try {
-    const { data } = await AJAX.get('/');
+    const { data } = await ajax.get('/');
 
     return {
       props: { products: data.products }

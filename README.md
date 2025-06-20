@@ -43,10 +43,6 @@ Este projeto é um teste técnico desenvolvido para a Cogna, com foco em boas pr
 
 </details>
 
-#### Teste a aplicação na nuvem
-Você pode acessar a aplicação hospedada na nuvem através do seguinte link: [Cogna Frontend](http://91.99.8.161:3000/).
-- Como está sem SSL, pode ser necessário aceitar o aviso de segurança do navegador.
-
 ## Principais decisões técnicas
 ### 1. Roteamento baseado em `/pages` com Server Side Rendering (SSR)
 Optei por utilizar a abordagem de roteamento baseada na pasta `/pages`, pois ela simplifica a configuração das rotas e torna o mapeamento entre URLs e componentes mais intuitivo. Além disso, utilizei Server Side Rendering (SSR) para as duas rotas otimizando o carregamento inicial das páginas e melhorar o SEO, permitindo que mecanismos de busca indexem o conteúdo de forma mais eficiente e proporcionando uma experiência mais rápida para o usuário, especialmente em buscas e acessos diretos.
@@ -80,5 +76,11 @@ export { default as Button } from './Button/Button';
 A interface foi quebrada em pequenos componentes reutilizáveis e independentes. Essa modularização facilita a manutenção, testes e reutilização dos componentes em diferentes partes do projeto, além de tornar o desenvolvimento mais ágil e organizado.
 
 ### 4. Extras - Diferenciais (Opcionais)
+#### **Autenticação de usuários com Sessão:**
+A autenticação de usuários foi implementada utilizando sessões, garantindo que as informações do usuário sejam mantidas durante a navegação. Isso foi feito através do uso de cookies e com token JSON Web Token (JWT).
 #### **Implementação do Docker:**
 O projeto agora pode ser executado em containers Docker, usando arquivos `Dockerfile` e `docker-compose.yml` para orquestrar o frontend. Basta rodar `docker-compose up --build` para iniciar tudo integrado.
+#### **Testes unitários:**
+Foram implementados testes unitários para os componentes principais, garantindo que a lógica e a renderização estejam corretas. Os testes podem ser executados com o comando `npm run test`.
+#### **GitHub Actions (CI):**
+Foi configurado um pipeline de CI com GitHub Actions para automatizar o processo de build e testes a cada push ou pull request.
