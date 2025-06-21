@@ -93,7 +93,11 @@ export function AuthProvider({
       }
 
       ajax.get('/auth/user').then(response => {
-         setUser(response.data);
+         if (!response.data.success) {
+            throw response.data;
+         }
+
+         setUser(response.data.user);
       }).catch((err) => {
          setUser(null);
       }).finally(() => {

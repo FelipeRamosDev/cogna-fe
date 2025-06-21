@@ -30,6 +30,7 @@ $disabled: color.adjust($primary, $lightness: 10%, $saturation: -95%);
 
 $background: color.adjust($primary, $lightness: -15%, $saturation: -70%);
 $background-light: color.adjust($primary, $lightness: -10%, $saturation: -80%);
+$background-dark: color.adjust($primary, $lightness: -20%, $saturation: -80%);
 
 // Elements
 $card: color.adjust($secondary, $lightness: -6%, $saturation: -70%);

@@ -1,0 +1,59 @@
+@use '@/styles/variables' as *;
+
+.MyProfileContent {
+   .page-content {
+      display: flex;
+      flex-direction: column-reverse;
+      gap: 4%;
+
+      @media screen and (min-width: $screen-m) {
+         flex-direction: row;
+      }
+
+      .content {
+         flex: 70%;
+
+         .content-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 3rem;
+            gap: 1rem;
+
+            .content-title-container {
+               .content-title {
+                  font-size: 1.5rem;
+               }
+      
+               .content-description {
+                  font-size: 1rem;
+               }
+            }
+
+            .content-actions {
+               display: flex;
+               align-items: center;
+               gap: 1rem;
+            }
+         }
+      }
+
+      .sidebar {
+         flex: 30%;
+
+         .profile-card {
+            margin-bottom: 2rem;
+
+            .card-title {
+               text-align: center;
+               margin-bottom: 2rem;
+            }
+
+            .profile-field {
+               display: flex;
+               justify-content: space-between;
+            }
+         }
+      }
+   }
+}

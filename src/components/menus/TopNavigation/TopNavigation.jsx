@@ -17,15 +17,13 @@ export default function TopNavigation({ className = '' }) {
    return (
       <nav className={parseCSS(className, 'TopNavigation')}>
          <Link className="menu-link" href="/" >Home</Link>
-         {user && <Link className="menu-link" href="/produto/importar">Importar</Link>}
-
          {!user && <Link href="/login">
             <Button title="Login da conta" color="tertiary">Login</Button>
          </Link>}
 
-         {user && (
-            <Button title="Sair da conta" color="error" onClick={logout}>Sair</Button>
-         )}
+         {user && <Link href="/meu-perfil">
+            <Button title="Perfil do usuário" color="tertiary">Perfil</Button>
+         </Link>}
       </nav>
    );
 }
