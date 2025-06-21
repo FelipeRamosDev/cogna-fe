@@ -3,13 +3,13 @@
 $primary: #006C67;
 $secondary: #0D1B2A;
 $tertiary: #8FE388;
-$error: #E3170A;
+$error: #e74438;
 
 // Standard Values
 $size-multiplier: 1.618;
-$lightness-light: 25%;
-$saturation-light: -55%;
-$lightness-dark: -25%;
+$lightness-light: 15%;
+$saturation-light: -25%;
+$lightness-dark: -45%;
 $saturation-dark: -20%;
 
 $primary-light: color.adjust($primary, $lightness: $lightness-light, $saturation: $saturation-light);
