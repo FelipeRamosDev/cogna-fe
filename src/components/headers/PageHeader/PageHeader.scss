@@ -1,0 +1,9 @@
+@use '@/styles/variables' as *;
+
+.PageHeader {
+   display: flex;
+   align-items: center;
+   height: 300px;
+   margin-bottom: 5rem;
+   background: $background-dark;
+}

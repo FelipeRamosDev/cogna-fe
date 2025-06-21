@@ -9,6 +9,7 @@
 @use '@/components/common/FormControl/FormControl.scss';
 @use '@/components/common/Spinner/Spinner.scss';
 @use '@/components/headers/TopHeader/TopHeader.scss';
+@use '@/components/headers/PageHeader/PageHeader.scss';
 @use '@/components/grids/ProductsGrid/ProductsGrid.scss';
 @use '@/components/layout/PageBase/PageBase.scss';
 @use '@/components/inputs/Input/Input.scss';
@@ -19,5 +20,6 @@
 
 // Contents
 @use '@/components/content/LoginContent/LoginContent.scss';
+@use '@/components/content/MyProfileContent/MyProfileContent.scss';
 @use '@/components/content/produto/ProductContent/ProductContent.scss';
 @use '@/components/content/produto/ImportContent/ImportContent.scss';

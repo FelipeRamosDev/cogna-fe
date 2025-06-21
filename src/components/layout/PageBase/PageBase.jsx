@@ -21,6 +21,7 @@ export default function PageBase({
    redirectLogin = true,
    notAuthRender = false,
    renderIfLoading = false,
+   noMarginHeader = false,
    children
 }) {
    if (useAuthentication) {
@@ -32,7 +33,7 @@ export default function PageBase({
             renderIfLoading={renderIfLoading}
          >
             <div className="PageBase">
-               <HeaderBase />
+               <HeaderBase noBottomMargin={noMarginHeader} />
                {children}
             </div>
          </AuthProvider>
