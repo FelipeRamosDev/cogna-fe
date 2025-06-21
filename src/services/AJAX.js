@@ -8,8 +8,6 @@ import axios from 'axios';
  * @returns {import('axios').AxiosInstance} Configured Axios instance.
  */
 export default function AJAX(API_ROOT, options) {
-   console.log(API_ROOT || process.env.API_ROOT || process.env.NEXT_PUBLIC_API_ROOT || 'http://localhost:8000');
-
    return axios.create({
       baseURL: API_ROOT || process.env.API_ROOT || process.env.NEXT_PUBLIC_API_ROOT || 'http://localhost:8000',
       withCredentials: true,
