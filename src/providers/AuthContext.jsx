@@ -19,14 +19,56 @@ const AuthContext = createContext();
  * @param {boolean} [props.renderIfLoading] - If true, renders children even while loading.
  * @param {boolean} [props.redirectLogin] - If true, redirects to /login if not authenticated.
  * @param {string} [props.spinnerHeight] - Height for the loading spinner.
+ * @param {boolean} [props.notAuthRender] - If true, renders children when not authenticated.
  * @param {React.ReactNode} props.children - Child components.
  * @returns {JSX.Element}
  */
-export function AuthProvider({ loadedUser, renderIfLoading, redirectLogin, spinnerHeight, children }) {
+export function AuthProvider({
+   loadedUser,
+   renderIfLoading = false,
+   redirectLogin = false,
+   spinnerHeight,
+   notAuthRender = false,
+   children
+}) {
    const [ user, setUser ] = useState(loadedUser || null);
    const [ loading, setLoading ] = useState(loadedUser ? false : true);
+   const isRender = user || notAuthRender || renderIfLoading;
    const router = useRouter();
    const ajax = Ajax();
+
+   const login = async (email, password) => {
+      try {
+         const loginUser = await ajax.post('/auth/login', { email, password });
+
+         if (!loginUser.data.success) {
+            throw loginUser;
+         }
+
+         router.push('/');
+         return loginUser.data;
+      } catch (error) {
+         const errorData = error.response ? error.response.data : error;
+         return errorData;
+      }
+   };
+
+   const register = async (data) => {
+      try {
+         const registerUser = await ajax.put('/auth/cadastro', data);
+
+         if (!registerUser.data.success) {
+            const errorData = registerUser.response ? registerUser.response.data : registerUser;
+            return errorData;
+         }
+
+         router.push('/');
+         return registerUser.data;
+      } catch (error) {
+         const errorData = error.response ? error.response.data : error;
+         return errorData;
+      }
+   };
 
    useEffect(() => {
       if (user) {
@@ -46,14 +88,13 @@ export function AuthProvider({ loadedUser, renderIfLoading, redirectLogin, spinn
       return <Spinner height={spinnerHeight} />;
    }
 
-   if (!user && redirectLogin && !renderIfLoading) {
+   if (!user && redirectLogin) {
       router.push('/login');
-      return <></>;
    }
 
    return (
-      <AuthContext.Provider value={{ user, loading }}>
-         {children}
+      <AuthContext.Provider value={{ user, loading, login, register }}>
+         {isRender && children}
       </AuthContext.Provider>
    );
 }
@@ -61,7 +102,7 @@ export function AuthProvider({ loadedUser, renderIfLoading, redirectLogin, spinn
 /**
  * Custom hook to access authentication context values.
  *
- * @returns {{user: object|null, loading: boolean}}
+ * @returns {{user: object|null, loading: boolean, login: function, register: function}}
  */
 export function useAuth() {
    return useContext(AuthContext);
