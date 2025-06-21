@@ -29,7 +29,7 @@ Este projeto é um teste técnico desenvolvido para a Cogna, com foco em boas pr
 4. Crie um arquivo `.env` na raiz do projeto com as seguintes variáveis de ambiente:
     ```env
     API_ROOT=http://localhost:8000
-    CLIENT_API_ROOT=http://localhost:3000 # Se você for rodar o frontend em uma rede diferente do backend, ajuste essa URL para apontar corretamente as requisições para o backend.
+    NEXT_PUBLIC_API_ROOT=http://localhost:3000 # Se você for rodar o frontend em uma rede diferente do backend, ajuste essa URL para apontar corretamente as requisições para o backend.
     ```
 5. Rode o build de produção:
     ```bash

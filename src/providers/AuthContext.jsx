@@ -26,7 +26,7 @@ export function AuthProvider({ loadedUser, renderIfLoading, redirectLogin, spinn
    const [ user, setUser ] = useState(loadedUser || null);
    const [ loading, setLoading ] = useState(loadedUser ? false : true);
    const router = useRouter();
-   const ajax = Ajax(process.env.CLIENT_API_ROOT);
+   const ajax = Ajax();
 
    useEffect(() => {
       if (user) {

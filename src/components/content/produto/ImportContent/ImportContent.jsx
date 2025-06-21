@@ -8,15 +8,13 @@ import Ajax from '@/services/AJAX';
  * ImportContent component for importing products via JSON file upload.
  * Handles file selection, form submission, and displays a JSON example for users.
  *
- * @param {object} props
- * @param {string} [props.CLIENT_API_ROOT='http://localhost:8000'] - API root URL for backend requests.
  * @returns {JSX.Element}
  */
-export default function ImportContent({ CLIENT_API_ROOT = 'http://localhost:8000' }) {
+export default function ImportContent() {
    const [ file, setFile ] = useState(null);
    const [ loading, setLoading ] = useState(false);
    const router = useRouter();
-   const ajax = Ajax(CLIENT_API_ROOT);
+   const ajax = Ajax();
 
    const handleSubmit = async (event) => {
       event.preventDefault();
