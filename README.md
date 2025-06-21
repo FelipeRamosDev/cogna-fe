@@ -29,7 +29,7 @@ Este projeto é um teste técnico desenvolvido para a Cogna, com foco em boas pr
 4. Crie um arquivo `.env` na raiz do projeto com as seguintes variáveis de ambiente:
     ```env
     API_ROOT=http://localhost:8000
-    CLIENT_API_ROOT=http://localhost:3000 # Se você for rodar o frontend em uma rede diferente do backend, ajuste essa URL para apontar corretamente as requisições para o backend.
+    NEXT_PUBLIC_API_ROOT=http://localhost:3000 # Se você for rodar o frontend em uma rede diferente do backend, ajuste essa URL para apontar corretamente as requisições para o backend.
     ```
 5. Rode o build de produção:
     ```bash
@@ -42,6 +42,10 @@ Este projeto é um teste técnico desenvolvido para a Cogna, com foco em boas pr
 7. Acesse o projeto em [http://localhost:3000](http://localhost:3000).
 
 </details>
+
+#### Teste a aplicação na nuvem
+Você pode acessar a aplicação hospedada na nuvem através do seguinte link: [Teste rodando na nuvem](http://91.99.8.161:3000/).
+- Como está sem SSL, pode ser necessário aceitar o aviso de segurança do navegador.
 
 ## Principais decisões técnicas
 ### 1. Roteamento baseado em `/pages` com Server Side Rendering (SSR)
