@@ -17,7 +17,7 @@ export default function Login() {
   const META_URL = 'http://localhost/';
 
   return (
-    <PageBase>
+    <PageBase redirectLogin={false} useAuthentication notAuthRender renderIfLoading>
       <Head>
         <title>{META_TITLE}</title>
         <meta name="description" content={META_DESCRIPTION} />

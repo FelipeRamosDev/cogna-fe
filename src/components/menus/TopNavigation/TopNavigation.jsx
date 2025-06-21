@@ -13,7 +13,6 @@ import { AuthProvider, useAuth } from '@/providers/AuthContext';
 export default function TopNavigation() {
    const auth = useAuth();
    const user = auth?.user;
-   const loading = auth?.loading;
 
    return (
       <nav>

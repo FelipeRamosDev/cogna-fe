@@ -10,7 +10,7 @@ import { PageBase } from '@/components/layout';
  */
 export default function Import() {
    return (
-      <PageBase authProtected>
+      <PageBase useAuthentication>
          <ImportContent />
       </PageBase>
    );

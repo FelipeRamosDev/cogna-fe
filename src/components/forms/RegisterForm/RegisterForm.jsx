@@ -1,28 +1,9 @@
-import { useRouter } from 'next/navigation';
 import { FormControl, FormInput } from '@/components/common';
-import Ajax from '@/services/AJAX';
+import { useAuth } from '@/providers/AuthContext';
 
 export default function RegisterForm() {
-   const router = useRouter();
-
-   const handleSubmit = async (data) => {
-      const ajax = Ajax(process.env.NEXT_PUBLIC_API_ROOT);
-      
-      try {
-         const registerUser = await ajax.put('/auth/cadastro', data);
-
-         if (!registerUser.data.success) {
-            const errorData = registerUser.response ? registerUser.response.data : registerUser;
-            return errorData;
-         }
-
-         router.push('/');
-         return registerUser.data;
-      } catch (error) {
-         const errorData = error.response ? error.response.data : error;
-         return errorData;
-      }
-   };
+   const { register } = useAuth();
+   const handleSubmit = async (data) => await register(data);
 
    return (
       <FormControl submitLabel="Entrar" onSubmit={handleSubmit}>
