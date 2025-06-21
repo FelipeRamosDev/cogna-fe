@@ -1,6 +1,7 @@
 import React from 'react';
 import { render, fireEvent, waitFor } from '@testing-library/react';
 import LoginForm from './LoginForm';
+import { AuthProvider } from '@/providers/AuthContext';
 
 // Mocks
 const mockPush = jest.fn();
@@ -26,13 +27,14 @@ jest.mock('@/components/common', () => ({
 }));
 
 describe('LoginForm', () => {
+   const LoginNode = () => <AuthProvider loadedUser={{ name: 'John', email: 'john@test.com' }} notAuthRender renderIfLoading><LoginForm /></AuthProvider>
    beforeEach(() => {
       mockPost.mockReset();
       mockPush.mockReset();
    });
 
    it('renders form and inputs', () => {
-      const { getByTestId, getByText } = render(<LoginForm />);
+      const { getByTestId, getByText } = render(<LoginNode />);
       expect(getByTestId('mock-form')).toBeInTheDocument();
       expect(getByTestId('mock-input-email')).toBeInTheDocument();
       expect(getByTestId('mock-input-password')).toBeInTheDocument();
@@ -41,7 +43,7 @@ describe('LoginForm', () => {
 
    it('submits form and redirects on success', async () => {
       mockPost.mockResolvedValueOnce({ data: { success: true } });
-      const { getByTestId } = render(<LoginForm />);
+      const { getByTestId } = render(<LoginNode />);
       fireEvent.submit(getByTestId('mock-form'));
       await waitFor(() => {
          expect(mockPost).toHaveBeenCalledWith('/auth/login', { email: 'test@email.com', password: '123456' });
@@ -53,7 +55,7 @@ describe('LoginForm', () => {
       const error = { response: { data: { error: 'fail' } } };
       mockPost.mockResolvedValueOnce({ data: { success: false } });
       const consoleSpy = jest.spyOn(console, 'error').mockImplementation(() => { });
-      const { getByTestId } = render(<LoginForm />);
+      const { getByTestId } = render(<LoginNode />);
       fireEvent.submit(getByTestId('mock-form'));
       await waitFor(() => {
          expect(mockPost).toHaveBeenCalled();
@@ -65,7 +67,7 @@ describe('LoginForm', () => {
       const error = { response: { data: { error: 'fail' } } };
       mockPost.mockRejectedValueOnce(error);
       const consoleSpy = jest.spyOn(console, 'error').mockImplementation(() => { });
-      const { getByTestId } = render(<LoginForm />);
+      const { getByTestId } = render(<LoginNode />);
       fireEvent.submit(getByTestId('mock-form'));
       await waitFor(() => {
          expect(mockPost).toHaveBeenCalled();
