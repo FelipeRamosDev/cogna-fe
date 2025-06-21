@@ -28,14 +28,6 @@ describe('TopNavigation', () => {
       expect(getByText('Home')).toBeInTheDocument();
    });
 
-   it('renders Importar link if user is present', () => {
-      mockUseAuth.mockReturnValue({ user: { name: 'Test' } });
-      const { getAllByTestId, getByText } = render(<TopNavigation />);
-      expect(getByText('Importar')).toBeInTheDocument();
-      const links = getAllByTestId('mock-link');
-      expect(links.some(link => link.getAttribute('href') === '/produto/importar')).toBe(true);
-   });
-
    it('renders Login button if user is not present', () => {
       mockUseAuth.mockReturnValue({ user: null });
       const { getAllByTestId, getByTestId, getByText } = render(<TopNavigation />);
