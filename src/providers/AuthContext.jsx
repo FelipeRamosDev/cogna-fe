@@ -70,6 +70,23 @@ export function AuthProvider({
       }
    };
 
+   const logout = async () => {
+      try {
+         const logoutUser = await ajax.post('/auth/logout');
+
+         if (!logoutUser.data.success) {
+            throw logoutUser;
+         }
+
+         setUser(null);
+         router.push('/');
+         return logoutUser.data;
+      } catch (error) {
+         const errorData = error.response ? error.response.data : error;
+         return errorData;
+      }
+   }
+
    useEffect(() => {
       if (user) {
          return;
@@ -93,7 +110,7 @@ export function AuthProvider({
    }
 
    return (
-      <AuthContext.Provider value={{ user, loading, login, register }}>
+      <AuthContext.Provider value={{ user, loading, login, register, logout }}>
          {isRender && children}
       </AuthContext.Provider>
    );
@@ -102,7 +119,7 @@ export function AuthProvider({
 /**
  * Custom hook to access authentication context values.
  *
- * @returns {{user: object|null, loading: boolean, login: function, register: function}}
+ * @returns {{user: object|null, loading: boolean, login: function, register: function, logout: function}}
  */
 export function useAuth() {
    return useContext(AuthContext);
