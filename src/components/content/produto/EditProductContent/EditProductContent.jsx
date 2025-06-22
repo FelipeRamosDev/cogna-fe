@@ -28,7 +28,7 @@ export default function EditProductContent({ product }) {
          router.push('/meu-perfil');
          return updated;
       } catch (error) {
-         throw new Error('Erro ao cadastrar o produto: ' + error.message);
+         throw new Error('Erro ao editar o produto: ' + error.message);
       }
    }
 
