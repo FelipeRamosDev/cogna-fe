@@ -72,7 +72,7 @@ export default function ImportContent() {
          </details>
 
          <form onSubmit={handleSubmit} encType="multipart/form-data">
-            <FileInput className="import-input" fileValue={file} onChange={handleChange} />
+            <FileInput className="import-input" accept="application/json" fileValue={file} onChange={handleChange} />
 
             <Button type="submit" variant="filled" color="tertiary" fullwidth disabled={loading}>
                {loading ? 'Importando...' : 'Importar'}

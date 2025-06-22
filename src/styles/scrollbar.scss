@@ -1,0 +1,26 @@
+@use './variables.scss' as *;
+
+* {
+   /* Firefox */
+  scrollbar-width: thin;
+  scrollbar-color: $tertiary $background;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+  background: $background;
+}
+
+::-webkit-scrollbar-thumb {
+  background: $tertiary;
+  border-radius: 8px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: darken($tertiary, 10%);
+}
+
+::-webkit-scrollbar-track {
+  background: $background;
+  border-radius: 8px;
+}

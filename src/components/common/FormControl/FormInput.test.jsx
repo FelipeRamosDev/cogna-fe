@@ -6,7 +6,7 @@ import FormInput from './FormInput';
 // Mock the Input component to simplify testing
 jest.mock('@/components/inputs', () => ({
    Input: ({ value, onChange, ...props }) => (
-      <input data-testid="mock-input" value={value} onChange={onChange} {...props} />
+      <input data-testid="mock-input" value={value} onChange={e => onChange(e.target.value, e)} {...props} />
    ),
 }));
 
