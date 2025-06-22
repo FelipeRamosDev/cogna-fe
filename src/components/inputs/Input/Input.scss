@@ -19,6 +19,7 @@
    .native-textarea {
       outline: none;
       border-width: 0 0 2px 0;
+      font-family: var(--font-roboto);
       width: 100%;
       border-color: $disabled;
       background-color: $background-light;

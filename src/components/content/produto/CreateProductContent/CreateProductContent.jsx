@@ -1,9 +1,8 @@
-import { Button, Card, Container, FormControl, FormInput } from "@/components/common";
-import { PageHeader } from "@/components/headers";
-import { ContentSidebar } from "@/components/layout";
-import AJAX from "@/services/AJAX";
-import { useRouter } from "next/navigation";
-import { Fragment } from "react";
+import { useRouter } from 'next/navigation';
+import { Container } from '@/components/common';
+import { ProductForm } from '@/components/forms';
+import { PageHeader } from '@/components/headers';
+import AJAX from '@/services/AJAX';
 
 export default function CreateProductContent() {
    const ajax = AJAX();
@@ -13,8 +12,9 @@ export default function CreateProductContent() {
       try {
          const response = await ajax.put('/produto/criar', values);
          const created = response.data;
+
          if (!created || !created.success) {
-            throw new Error(created.error || 'Erro desconhecido ao criar o produto.');
+            throw new Error(created.message || 'Erro desconhecido ao criar o produto.');
          }
 
          router.push('/meu-perfil');
@@ -29,27 +29,7 @@ export default function CreateProductContent() {
          <PageHeader title="Cadastrar Novo Produto" subtitle="Cadastre abaixo um novo produto para a loja." />
 
          <Container>
-            <FormControl hideSubmit onSubmit={handleSubmit}>
-               <ContentSidebar reverseColumn>
-                  <Fragment>
-                     <Card padding="l" radius="s">
-                        <FormInput fieldName="name" label="Nome" />
-                        <FormInput fieldName="description" label="Descrição" multiline minLines={15} />
-                     </Card>
-                  </Fragment>
-
-                  <Fragment>
-                     <Card>
-                        <FormInput fieldName="category" label="Categoria" />
-                        <FormInput fieldName="price" type="number" label="Preço" />
-                     </Card>
-                     
-                     <Card>
-                        <Button color="tertiary" fullwidth>Salvar Produto</Button>
-                     </Card>
-                  </Fragment>
-               </ContentSidebar>
-            </FormControl>
+            <ProductForm handleSubmit={handleSubmit}/>
          </Container>
       </div>
    );

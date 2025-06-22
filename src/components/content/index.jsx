@@ -4,5 +4,6 @@ export { default as MyProfileContent } from './MyProfileContent/MyProfileContent
 
 // /produto
 export { default as CreateProductContent } from './produto/CreateProductContent/CreateProductContent';
+export { default as EditProductContent } from './produto/EditProductContent/EditProductContent';
 export { default as ProductContent } from './produto/ProductContent/ProductContent';
 export { default as ImportContent } from './produto/ImportContent/ImportContent';
