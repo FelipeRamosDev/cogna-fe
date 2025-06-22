@@ -15,7 +15,8 @@
       color: $text-soft;
    }
 
-   .native-input {
+   .native-input,
+   .native-textarea {
       outline: none;
       border-width: 0 0 2px 0;
       width: 100%;
@@ -26,6 +27,18 @@
    
       &:focus {
          border-color: $tertiary;
+      }
+
+      &[type="number"]::-webkit-inner-spin-button,
+      &[type="number"]::-webkit-outer-spin-button {
+         -webkit-appearance: none;
+         margin: 0;
+      }
+
+      /* Firefox */
+      &[type="number"] {
+         -moz-appearance: textfield;
+         appearance: textfield;
       }
    }
 }

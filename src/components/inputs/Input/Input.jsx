@@ -29,25 +29,53 @@ const Input = forwardRef(({
    padding = 'm',
    inputProps = {},
    value,
+   multiline,
+   minLines = 5,
    onChange,
    ...props
 }, ref) => {
    const wrapperCSS = parseCSS(className, 'Input');
+   const lineHeigth = 1.2;
+   const paddingSizes = 2.5;
+   const remLineHeigth = (minLines * lineHeigth) + paddingSizes + 'rem';
+
+   const parseOnChange = (event) => {
+      let value = event.target.value;
+
+      if (type === 'number') {
+         value = Number(event.target.value);
+      }
+
+      if (onChange) {
+         onChange(value, event);
+      }
+   };
 
    return (
       <div className={wrapperCSS}>
          {label && <label htmlFor={id} className="input-label">{label}</label>}
 
-         <input
+         {!multiline && <input
             ref={ref}
             id={id}
             name={name}
             type={type}
             placeholder={placeholder}
             className="native-input"
-            onChange={onChange}
+            onChange={parseOnChange}
             {...props}
-         />
+         />}
+
+         {multiline && <textarea
+            ref={ref}
+            id={id}
+            name={name}
+            placeholder={placeholder}
+            className="native-textarea"
+            style={{ minHeight: remLineHeigth }}
+            onChange={parseOnChange}
+         >
+         </textarea>}
       </div>
    );
 });

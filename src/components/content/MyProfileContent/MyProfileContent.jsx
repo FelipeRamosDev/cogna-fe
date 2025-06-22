@@ -40,6 +40,9 @@ export default function MyProfileContent() {
                         <Link href="/produto/importar">
                            <Button title="Importar Produtos" color="primary">Importar</Button>
                         </Link>
+                        <Link href="/produto/criar">
+                           <Button title="Criar Novo Produto" color="tertiary">Novo</Button>
+                        </Link>
                      </div>
                   </div>
 

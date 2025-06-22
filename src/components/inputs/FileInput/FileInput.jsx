@@ -19,8 +19,10 @@ export default function FileInput({
    id,
    name,
    fileValue,
+   accept,
    padding = 'm',
    radius = 'm',
+   multiFiles = false,
    onChange = () => {},
    ...props
 }) {
@@ -34,10 +36,11 @@ export default function FileInput({
       <div className={CSS}>
          <input
             type="file"
-            accept="application/json"
+            accept={accept}
             id={id}
             name={name}
-            onChange={(event) => onChange(event.target.files[0], event)}
+            multiple={multiFiles}
+            onChange={(event) => onChange(multiFiles ? event.target.files : event.target.files[0], event)}
             {...props}
          />
 
