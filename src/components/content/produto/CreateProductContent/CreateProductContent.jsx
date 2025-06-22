@@ -17,7 +17,6 @@ export default function CreateProductContent() {
             throw new Error(created.error || 'Erro desconhecido ao criar o produto.');
          }
 
-         console.log('Produto criado com sucesso:', values);
          router.push('/meu-perfil');
          return created;
       } catch (error) {

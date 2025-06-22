@@ -1,9 +1,13 @@
 @use './variables.scss' as *;
 
 * {
-   /* Firefox */
-  scrollbar-width: thin;
+  -webkit-scrollbar-color: $tertiary $background;
   scrollbar-color: $tertiary $background;
+  /* Firefox */
+  @supports (scrollbar-width: thin) {
+    scrollbar-width: thin;
+    // scrollbar-color: $tertiary $background;
+  }
 }
 
 ::-webkit-scrollbar {
