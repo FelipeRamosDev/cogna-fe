@@ -13,7 +13,6 @@ import React, { forwardRef } from 'react';
  * @param {string} [props.placeholder] - Placeholder text for the input.
  * @param {string} [props.className] - Additional CSS classes for the wrapper.
  * @param {string} [props.padding='m'] - Padding size for styling.
- * @param {object} [props.inputProps={}] - Additional props for the input element.
  * @param {any} [props.value] - Value of the input.
  * @param {Function} [props.onChange] - Change handler for the input.
  * @param {React.Ref} ref - Ref forwarded to the input element.
@@ -27,7 +26,7 @@ const Input = forwardRef(({
    placeholder,
    className = '',
    padding = 'm',
-   inputProps = {},
+   defaultValue,
    value,
    multiline,
    minLines = 5,
@@ -40,14 +39,14 @@ const Input = forwardRef(({
    const remLineHeigth = (minLines * lineHeigth) + paddingSizes + 'rem';
 
    const parseOnChange = (event) => {
-      let value = event.target.value;
+      let newValue = event.target.value;
 
       if (type === 'number') {
-         value = Number(event.target.value);
+         newValue = Number(event.target.value);
       }
 
       if (onChange) {
-         onChange(value, event);
+         onChange(newValue, event);
       }
    };
 
@@ -62,6 +61,8 @@ const Input = forwardRef(({
             type={type}
             placeholder={placeholder}
             className="native-input"
+            defaultValue={defaultValue}
+            value={value}
             onChange={parseOnChange}
             {...props}
          />}
@@ -73,6 +74,8 @@ const Input = forwardRef(({
             placeholder={placeholder}
             className="native-textarea"
             style={{ minHeight: remLineHeigth }}
+            defaultValue={defaultValue}
+            value={value}
             onChange={parseOnChange}
          >
          </textarea>}
