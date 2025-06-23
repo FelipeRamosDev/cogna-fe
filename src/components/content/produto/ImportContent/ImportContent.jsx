@@ -1,15 +1,20 @@
-import axios from 'axios';
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { Button, Container } from '@/components/common';
 import { FileInput } from '@/components/inputs';
 import Ajax from '@/services/AJAX';
 
-export default function ImportContent({ CLIENT_API_ROOT = 'http://localhost:8000' }) {
+/**
+ * ImportContent component for importing products via JSON file upload.
+ * Handles file selection, form submission, and displays a JSON example for users.
+ *
+ * @returns {JSX.Element}
+ */
+export default function ImportContent() {
    const [ file, setFile ] = useState(null);
    const [ loading, setLoading ] = useState(false);
    const router = useRouter();
-   const ajax = Ajax(CLIENT_API_ROOT);
+   const ajax = Ajax();
 
    const handleSubmit = async (event) => {
       event.preventDefault();
@@ -43,7 +48,7 @@ export default function ImportContent({ CLIENT_API_ROOT = 'http://localhost:8000
          <h1 className="page-title">Importar Produtos</h1>
          <p className="page-description">Carregue seus produtos em um JSON para importá-los.</p>
 
-         <details>
+         <details className="code-example-accordeon">
             <summary>Exemplo de JSON</summary>
 
             <pre className="code-example">
@@ -67,7 +72,7 @@ export default function ImportContent({ CLIENT_API_ROOT = 'http://localhost:8000
          </details>
 
          <form onSubmit={handleSubmit} encType="multipart/form-data">
-            <FileInput className="import-input" fileValue={file} onChange={handleChange} />
+            <FileInput className="import-input" accept="application/json" fileValue={file} onChange={handleChange} />
 
             <Button type="submit" variant="filled" color="tertiary" fullwidth disabled={loading}>
                {loading ? 'Importando...' : 'Importar'}

@@ -2,6 +2,12 @@ import { PageBase } from '@/components/layout';
 import { LoginContent } from '@/components/content';
 import Head from 'next/head';
 
+/**
+ * Login page component for user authentication.
+ * Sets up SEO meta tags and renders the LoginContent component.
+ *
+ * @returns {JSX.Element}
+ */
 export default function Login() {
   const META_TITLE = 'Cogna - Login de usuário';
   const META_DESCRIPTION = 'Página de login do usuário.';
@@ -11,7 +17,7 @@ export default function Login() {
   const META_URL = 'http://localhost/';
 
   return (
-    <PageBase>
+    <PageBase redirectLogin={false} useAuthentication notAuthRender renderIfLoading>
       <Head>
         <title>{META_TITLE}</title>
         <meta name="description" content={META_DESCRIPTION} />

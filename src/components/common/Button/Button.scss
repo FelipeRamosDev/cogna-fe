@@ -55,4 +55,13 @@
          background-color: $tertiary-light;
       }
    }
+
+   &.error.filled {
+      background-color: $error;
+      color: $error-dark;
+      
+      &:hover {
+         background-color: $error-light;
+      }
+   }
 }

@@ -13,7 +13,7 @@ import { parseCSS, parseElevation, parsePadding, parseRadius } from '@/utils/par
  *
  * @returns {JSX.Element} A div element with the computed class names and the provided children.
  */
-export default function Card({ className = '', padding = 'm', radius = 'm', elevation = 'm', children }) {
+export default function Card({ id = '', className = '', padding = 'm', radius = 'm', elevation = 'm', children }) {
    const classes = parseCSS(className, [
       'Card',
       parsePadding(padding),
@@ -22,7 +22,7 @@ export default function Card({ className = '', padding = 'm', radius = 'm', elev
    ]);
 
    return (
-      <div className={classes} data-testid="card">
+      <div id={id} className={classes} data-testid="card">
          {children}
       </div>
    );

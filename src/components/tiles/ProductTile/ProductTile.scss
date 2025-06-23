@@ -1,6 +1,8 @@
 @use '@/styles/variables.scss' as *;
 
 .ProductTile {
+   border-bottom: 3px solid $tertiary;
+
    .product-info {
       padding: $padding-m;
 

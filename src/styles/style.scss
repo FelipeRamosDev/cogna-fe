@@ -1,5 +1,6 @@
 @use './globals.scss';
 @use './format.scss';
+@use './scrollbar.scss';
 
 // Components
 @use '@/components/common/Button/Button.scss';
@@ -9,13 +10,18 @@
 @use '@/components/common/FormControl/FormControl.scss';
 @use '@/components/common/Spinner/Spinner.scss';
 @use '@/components/headers/TopHeader/TopHeader.scss';
+@use '@/components/headers/PageHeader/PageHeader.scss';
 @use '@/components/grids/ProductsGrid/ProductsGrid.scss';
 @use '@/components/layout/PageBase/PageBase.scss';
-@use '@/components/tiles/ProductTile/ProductTile.scss';
+@use '@/components/layout/ContentSidebar/ContentSidebar.scss';
 @use '@/components/inputs/Input/Input.scss';
 @use '@/components/inputs/FileInput/FileInput.scss';
+@use '@/components/menus/TopNavigation/TopNavigation.scss';
+@use '@/components/tiles/ProductTile/ProductTile.scss';
+@use '@/components/tiles/ErrorTile/ErrorTile.scss';
 
 // Contents
 @use '@/components/content/LoginContent/LoginContent.scss';
+@use '@/components/content/MyProfileContent/MyProfileContent.scss';
 @use '@/components/content/produto/ProductContent/ProductContent.scss';
 @use '@/components/content/produto/ImportContent/ImportContent.scss';

@@ -10,8 +10,11 @@ import { parseCSS } from '@/utils/parse';
  *
  * @returns {JSX.Element} A div element with container styling.
  */
-export default function Container({ className, children }) {
-   const classes = parseCSS(className, 'Container');
+export default function Container({ className, fullwidth, children }) {
+   const classes = parseCSS(className, [
+      'Container',
+      fullwidth ? 'fullwidth' : '',
+   ]);
 
    return (
       <div className={classes} data-testid="container">
