@@ -37,7 +37,7 @@ export default function ProductContent({ product }) {
 
                   <div className="description-wrap">
                      <span className="label">Descrição:</span>
-                     <p className="description">{product.description}</p>
+                     <pre className="description">{product.description}</pre>
                   </div>
                </div>
             </Card>

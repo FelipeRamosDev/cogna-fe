@@ -1,6 +1,7 @@
-import { Button } from '@/components/common';
 import Link from 'next/link';
-import { AuthProvider, useAuth } from '@/providers/AuthContext';
+import { useAuth } from '@/providers/AuthContext';
+import { Button } from '@/components/common';
+import { parseCSS } from '@/utils/parse';
 
 /**
  * Renders the top-level navigation menu.
@@ -10,18 +11,18 @@ import { AuthProvider, useAuth } from '@/providers/AuthContext';
  * @component
  * @returns {JSX.Element} A navigation element with primary site links.
  */
-export default function TopNavigation() {
-   const auth = useAuth();
-   const user = auth?.user;
-   const loading = auth?.loading;
+export default function TopNavigation({ className = '' }) {
+   const { user, logout } = useAuth();
 
    return (
-      <nav>
-         <Link href="/" >Home</Link>
-         {user && <Link href="/produto/importar">Importar</Link>}
-
+      <nav className={parseCSS(className, 'TopNavigation')}>
+         <Link className="menu-link" href="/" >Home</Link>
          {!user && <Link href="/login">
             <Button title="Login da conta" color="tertiary">Login</Button>
+         </Link>}
+
+         {user && <Link href="/meu-perfil">
+            <Button title="Perfil do usuário" color="tertiary">Perfil</Button>
          </Link>}
       </nav>
    );

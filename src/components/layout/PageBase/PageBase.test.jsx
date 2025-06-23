@@ -18,7 +18,7 @@ jest.mock('@/providers/AuthContext', () => ({
 }));
 
 describe('PageBase', () => {
-   it('renders header and children when not authProtected', () => {
+   it('renders header and children when not useAuthentication', () => {
       const { getByTestId, getByText, container } = render(
          <PageBase>Content</PageBase>
       );
@@ -27,9 +27,9 @@ describe('PageBase', () => {
       expect(getByText('Content')).toBeInTheDocument();
    });
 
-   it('wraps with AuthProvider when authProtected', () => {
+   it('wraps with AuthProvider when useAuthentication', () => {
       const { getByTestId, getByText, container } = render(
-         <PageBase authProtected>Secret</PageBase>
+         <PageBase useAuthentication>Secret</PageBase>
       );
       expect(getByTestId('mock-auth-provider')).toBeInTheDocument();
       expect(getByTestId('mock-header')).toBeInTheDocument();
@@ -39,7 +39,7 @@ describe('PageBase', () => {
 
    it('passes correct props to AuthProvider', () => {
       const { getByTestId } = render(
-         <PageBase authProtected>Test</PageBase>
+         <PageBase useAuthentication>Test</PageBase>
       );
       const authProvider = getByTestId('mock-auth-provider');
       expect(authProvider.getAttribute('redirectlogin')).toBe('true');

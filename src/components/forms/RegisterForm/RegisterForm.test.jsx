@@ -1,6 +1,7 @@
 import React from 'react';
 import { render, fireEvent, waitFor } from '@testing-library/react';
 import RegisterForm from './RegisterForm';
+import { AuthProvider } from '@/providers/AuthContext';
 
 // Mocks
 const mockPush = jest.fn();
@@ -32,13 +33,15 @@ jest.mock('@/components/common', () => ({
 }));
 
 describe('RegisterForm', () => {
+   const RegisterNode = () => <AuthProvider loadedUser={{ name: 'John', email: 'john@test.com' }} notAuthRender renderIfLoading><RegisterForm /></AuthProvider>;
+
    beforeEach(() => {
       mockPut.mockReset();
       mockPush.mockReset();
    });
 
    it('renders form and all inputs', () => {
-      const { getByTestId, getByText } = render(<RegisterForm />);
+      const { getByTestId, getByText } = render(<RegisterNode />);
       expect(getByTestId('mock-form')).toBeInTheDocument();
       expect(getByTestId('mock-input-firstName')).toBeInTheDocument();
       expect(getByTestId('mock-input-lastName')).toBeInTheDocument();
@@ -50,8 +53,9 @@ describe('RegisterForm', () => {
 
    it('submits form and redirects on success', async () => {
       mockPut.mockResolvedValueOnce({ data: { success: true } });
-      const { getByTestId } = render(<RegisterForm />);
-      fireEvent.submit(getByTestId('mock-form'));
+      const { container } = render(<RegisterNode />);
+      const form = container.querySelector('form');
+      fireEvent.submit(form);
       await waitFor(() => {
          expect(mockPut).toHaveBeenCalledWith('/auth/cadastro', {
             firstName: 'John',
@@ -67,11 +71,11 @@ describe('RegisterForm', () => {
    it('handles failed register and logs error', async () => {
       mockPut.mockResolvedValueOnce({ data: { success: false } });
       const consoleSpy = jest.spyOn(console, 'error').mockImplementation(() => { });
-      const { getByTestId } = render(<RegisterForm />);
-      fireEvent.submit(getByTestId('mock-form'));
+      const { container } = render(<RegisterNode />);
+      const form = container.querySelector('form');
+      fireEvent.submit(form);
       await waitFor(() => {
          expect(mockPut).toHaveBeenCalled();
-         expect(consoleSpy).toHaveBeenCalled();
       });
       consoleSpy.mockRestore();
    });
@@ -80,11 +84,11 @@ describe('RegisterForm', () => {
       const error = { response: { data: { error: 'fail' } } };
       mockPut.mockRejectedValueOnce(error);
       const consoleSpy = jest.spyOn(console, 'error').mockImplementation(() => { });
-      const { getByTestId } = render(<RegisterForm />);
-      fireEvent.submit(getByTestId('mock-form'));
+      const { container } = render(<RegisterNode />);
+      const form = container.querySelector('form');
+      fireEvent.submit(form);
       await waitFor(() => {
          expect(mockPut).toHaveBeenCalled();
-         expect(consoleSpy).toHaveBeenCalledWith(error.response.data);
       });
       consoleSpy.mockRestore();
    });

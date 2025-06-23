@@ -3,29 +3,34 @@
 $primary: #006C67;
 $secondary: #0D1B2A;
 $tertiary: #8FE388;
+$error: #e74438;
 
 // Standard Values
 $size-multiplier: 1.618;
-$lightness-light: 5%;
-$saturation-light: -5%;
-$lightness-dark: -15%;
+$lightness-light: 15%;
+$saturation-light: -25%;
+$lightness-dark: -45%;
 $saturation-dark: -20%;
 
 $primary-light: color.adjust($primary, $lightness: $lightness-light, $saturation: $saturation-light);
 $secondary-light: color.adjust($secondary, $lightness: $lightness-light, $saturation: $saturation-light);
 $tertiary-light: color.adjust($tertiary, $lightness: $lightness-light, $saturation: $saturation-light);
+$error-light: color.adjust($error, $lightness: $lightness-light, $saturation: $saturation-light);
 
 $primary-dark: color.adjust($primary, $lightness: $lightness-dark, $saturation: $saturation-dark);
 $secondary-dark: color.adjust($secondary, $lightness: $lightness-dark, $saturation: $saturation-dark);
 $tertiary-dark: color.adjust($tertiary, $lightness: $lightness-dark, $saturation: $saturation-dark);
+$error-dark: color.adjust($error, $lightness: $lightness-dark, $saturation: $saturation-dark);
 
 $text: color.adjust($primary, $lightness: 80%);
 $text-soft: color.adjust($primary, $lightness: 40%, $saturation: -95%);
 $text-contrast: color.adjust($primary, $lightness: -80%);
+$text-error: $error-dark;
 $disabled: color.adjust($primary, $lightness: 10%, $saturation: -95%);
 
 $background: color.adjust($primary, $lightness: -15%, $saturation: -70%);
 $background-light: color.adjust($primary, $lightness: -10%, $saturation: -80%);
+$background-dark: color.adjust($primary, $lightness: -20%, $saturation: -80%);
 
 // Elements
 $card: color.adjust($secondary, $lightness: -6%, $saturation: -70%);
