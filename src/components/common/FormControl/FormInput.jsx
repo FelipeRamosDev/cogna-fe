@@ -10,12 +10,12 @@ import { useForm } from './FormControl';
  * @param {string} [props.fieldName] - Name of the field in the form state.
  * @param {string} [props.label] - Label for the input field.
  * @param {string} [props.accept] - Accept attribute for file inputs (e.g., 'image/*').
- * @param {boolean} [props.muiltiline=false] - If true, renders a textarea instead of an input.
+ * @param {boolean} [props.multiline=false] - If true, renders a textarea instead of an input.
  * @param {number} [props.minLines=5] - Minimum number of lines for the muultiline.
  * @param {'text' | 'number' | 'email' | 'password' | 'tel'} [props.type='text'] - Input type (text, number, email, password, tel, etc).
  * @returns {JSX.Element}
  */
-export default function FormInput({ id, fieldName = '', label = '', type = 'text', accept, muiltiline, minLines, ...props }) {
+export default function FormInput({ id, fieldName = '', label = '', type = 'text', accept, multiline, minLines, ...props }) {
    const { values, setFieldValue } = useForm();
 
    switch (type) {
@@ -43,7 +43,7 @@ export default function FormInput({ id, fieldName = '', label = '', type = 'text
             label={label}
             name={fieldName}
             value={values[fieldName] || ''}
-            muiltiline={muiltiline}
+            multiline={multiline}
             minLines={minLines}
             onChange={(value, ev) => setFieldValue(fieldName, value)}
             {...props}

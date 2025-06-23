@@ -9,12 +9,10 @@ export default function EditProductContent({ product }) {
    const router = useRouter();
 
    const handleSubmit = async (values) => {
-      delete values.id;
-      delete values.created_at;
-
+      const { id, created_at, ...rest } = values;
       const payload = {
          id: product.id,
-         data: values,
+         data: rest,
       }
 
       try {

@@ -33,7 +33,7 @@ export default function MyProfileContent() {
                   <div className="content-header">
                      <div className="content-title-container">
                         <h2 className="content-title">Meus Produtos</h2>
-                        <p className="content-description">Veja abaixo os produtos que você tem cadstrado e genrencia eles aqui.</p>
+                        <p className="content-description">Veja abaixo os produtos que você tem cadastrado e gerencia eles aqui.</p>
                      </div>
 
                      <div className="content-actions">
