@@ -16,6 +16,7 @@ const AuthContext = createContext();
  *
  * @param {object} props
  * @param {object|null} [props.loadedUser] - User object if already loaded (SSR/SSG).
+ * @param {boolean} [props.noSpinner] - If true, does not show loading spinner.
  * @param {boolean} [props.renderIfLoading] - If true, renders children even while loading.
  * @param {boolean} [props.redirectLogin] - If true, redirects to /login if not authenticated.
  * @param {string} [props.spinnerHeight] - Height for the loading spinner.
@@ -25,6 +26,7 @@ const AuthContext = createContext();
  */
 export function AuthProvider({
    loadedUser,
+   noSpinner = false,
    renderIfLoading = false,
    redirectLogin = false,
    spinnerHeight,
@@ -105,7 +107,7 @@ export function AuthProvider({
       });
    }, []);
 
-   if (loading && !renderIfLoading) {
+   if (loading && !renderIfLoading && !noSpinner) {
       return <Spinner height={spinnerHeight} />;
    }
 

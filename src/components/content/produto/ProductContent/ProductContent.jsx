@@ -1,5 +1,7 @@
 import { Container, Button, Card, ImagePlaceholder } from '@/components/common';
 import { parseMoney } from '@/utils/parse';
+import ProductEditBar from './ProductEditBar/ProductEditBar';
+import { AuthProvider } from '@/providers/AuthContext';
 
 /**
  * Renders the detailed view of a single product, including image, name, category, price, and description.
@@ -25,6 +27,10 @@ export default function ProductContent({ product }) {
                <ImagePlaceholder />
 
                <div className="product-info">
+                  <AuthProvider noSpinner>
+                     <ProductEditBar product={product} />
+                  </AuthProvider>
+
                   <p className="product-path">{product.category} / {product.name}</p>
                   <h1>{product.name}</h1>
 
