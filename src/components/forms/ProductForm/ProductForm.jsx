@@ -1,8 +1,19 @@
 import { Button, Card, FormControl, FormInput } from '@/components/common';
 import { ContentSidebar } from '@/components/layout';
+import { useAuth } from '@/providers/AuthContext';
 import { Fragment } from 'react';
 
-export default function ProductForm({ editMode, product, handleSubmit = () => {} }) {
+export default function ProductForm({ editMode, product = {}, handleSubmit = () => {} }) {
+   const { user } = useAuth();
+
+   if (!user) {
+      return null;
+   }
+
+   if (!product.author_id && !editMode) {
+      product.author_id = user.id;
+   }
+
    return (
       <FormControl initialValues={product} hideSubmit onSubmit={handleSubmit}>
          <ContentSidebar reverseColumn>

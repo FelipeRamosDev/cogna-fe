@@ -16,7 +16,7 @@ export default function HomeContent({ products }) {
    return (
       <div className="HomeContent">
          <Container>
-            <ProductsGrid products={products} />
+            <ProductsGrid staticProducts={products} />
          </Container>
       </div>
    );
