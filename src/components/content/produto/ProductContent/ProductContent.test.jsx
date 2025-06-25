@@ -14,6 +14,9 @@ jest.mock('@/components/common', () => ({
 jest.mock('@/helpers/parse', () => ({
    parseMoney: (value) => `R$ ${value}`
 }));
+jest.mock('next/navigation', () => ({
+  useRouter: () => ({ push: jest.fn() })
+}));
 
 describe('ProductContent', () => {
    const product = {
