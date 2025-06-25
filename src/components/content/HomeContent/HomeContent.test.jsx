@@ -7,8 +7,8 @@ jest.mock('@/components/common', () => ({
    Container: ({ children }) => <div data-testid="mock-container">{children}</div>,
 }));
 jest.mock('@/components/grids', () => ({
-   ProductsGrid: ({ products }) => (
-      <div data-testid="mock-products-grid">{products && products.length} products</div>
+   ProductsGrid: ({ staticProducts }) => (
+      <div data-testid="mock-products-grid">{staticProducts && staticProducts.length} products</div>
    ),
 }));
 
