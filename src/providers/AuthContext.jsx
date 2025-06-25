@@ -45,7 +45,7 @@ export function AuthProvider({
             throw loginUser;
          }
 
-         router.push('/');
+         router.push('/meu-perfil');
          return loginUser.data;
       } catch (error) {
          const errorData = error.response ? error.response.data : error;
@@ -62,7 +62,7 @@ export function AuthProvider({
             return errorData;
          }
 
-         router.push('/');
+         router.push('/meu-perfil');
          return registerUser.data;
       } catch (error) {
          const errorData = error.response ? error.response.data : error;
