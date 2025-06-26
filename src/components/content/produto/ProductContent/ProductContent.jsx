@@ -20,8 +20,6 @@ import { AuthProvider } from '@/providers/AuthContext';
  * @returns {JSX.Element} A detailed product section with visual and textual elements.
  */
 export default function ProductContent({ product }) {
-   console.log('ProductContent', product);
-
    return (
       <div className="ProductContent">
          <Container>
