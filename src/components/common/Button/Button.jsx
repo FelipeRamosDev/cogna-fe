@@ -10,6 +10,7 @@ import Spinner from "../Spinner/Spinner";
  * @param {'filled'|'outlined'|'transparent'} [props.variant='filled'] - The visual variant of the button.
  * @param {'primary'|'secondary'|'tertiary'} [props.color='primary'] - The color theme of the button. This option will only work if the variant is set to "filled"
  * @param {boolean} [props.fullwidth] - If true, the button will take the full width of its container.
+ * @param {boolean} [props.disabled=false] - If true, the button will be disabled and not clickable.
  * @param {boolean} [props.isLoading=false] - If true, shows a loading spinner instead of button content.
  * @param {'none'|'xs'|'s'|'m'|'l'} [props.padding='s'] - The internal padding size of the button.
  * @param {'none'|'xs'|'s'|'m'|'l'|'full'} [props.radius='s'] - The border-radius size of the button.
@@ -23,6 +24,7 @@ export default function Button({
    padding = 's',
    radius = 's',
    isLoading = false,
+   disabled = false,
    className,
    fullwidth,
    children,
@@ -40,7 +42,7 @@ export default function Button({
    ]);
 
    return (
-      <button className={classes} disabled={isLoading} {...props}>
+      <button className={classes} disabled={disabled || isLoading} {...props}>
          {isLoading ? <Spinner size="1rem" /> : children}
       </button>
    );
