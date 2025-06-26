@@ -37,7 +37,7 @@ describe('ProductContent', () => {
       expect(getByText('R$ 123.45')).toBeInTheDocument();
       expect(getByTestId('mock-button')).toBeInTheDocument();
       expect(getByText('Adicionar ao Carrinho')).toBeInTheDocument();
-      expect(getByText('Descrição:')).toBeInTheDocument();
+      expect(getByText('Descrição do produto:')).toBeInTheDocument();
       expect(getByText('Descrição do produto teste.')).toBeInTheDocument();
    });
 
