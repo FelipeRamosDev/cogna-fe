@@ -59,7 +59,6 @@ function FormProvider({
          const result = await onSubmit(values, errors, event);
          if (!result || typeof result !== 'object' || Array.isArray(result)) {
             setLoading(false);
-            console.error('[FormControl] The "onSubmit" must return an object with success or error properties');
             return;
          }
    
@@ -72,10 +71,13 @@ function FormProvider({
             resetForm();
             setResponseError(null);
             setFieldError({});
+         } else {
+            setLoading(false)
+            setResponseError(result);
          }
       } catch (error) {
          setLoading(false);
-         throw new Error(`[FormControl] Error in onSubmit: ${error.message}`);
+         setResponseError(error);
       }
    };
 

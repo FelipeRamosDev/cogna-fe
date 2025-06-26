@@ -34,13 +34,12 @@ export default function ProductsGrid({ staticProducts, selectFields, where, sort
          const { success, products } = data;
 
          if (!success) {
-            console.error('Failed to fetch products:', data);
-            return;
+            throw new Error('Failed to fetch products');
          }
          
          setProducts(products);
       }).catch(error => {
-         console.error('Error fetching products:', error);
+         throw error;
       });
    }, [ selectFields, where, sort, limit, populateAuthor ]);
 

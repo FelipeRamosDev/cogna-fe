@@ -18,7 +18,7 @@ export default function ProductEditBar({ product = {} }) {
 
          router.push('/meu-perfil');
       } catch (error) {
-         console.error("Error deleting product:", error);
+         alert(error.message || 'Erro ao deletar o produto. Verifique o console para mais detalhes.');
       }
    };
 

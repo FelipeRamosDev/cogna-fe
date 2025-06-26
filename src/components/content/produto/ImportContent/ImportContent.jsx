@@ -32,8 +32,8 @@ export default function ImportContent() {
             throw res;
          }
       } catch (error) {
-         console.error(error.response ? error.response.data : error);
          setLoading(false);
+         alert(error.message || 'Erro ao importar produtos. Verifique o console para mais detalhes.');
       } finally {
          setFile(null);
       }
