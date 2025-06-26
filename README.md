@@ -45,7 +45,7 @@ Este projeto é um teste técnico desenvolvido para a Cogna, com foco em boas pr
 </details>
 
 #### Teste a aplicação na nuvem
-Você pode acessar a aplicação hospedada na nuvem através do seguinte link: [Teste rodando na nuvem](http://91.99.8.161:3000/).
+Você pode acessar a aplicação hospedada na nuvem através do seguinte URL: http://91.99.8.161:3000
 - Como está sem SSL, pode ser necessário aceitar o aviso de segurança do navegador.
 
 ## Principais decisões técnicas
