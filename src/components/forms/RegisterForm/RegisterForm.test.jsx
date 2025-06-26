@@ -64,7 +64,7 @@ describe('RegisterForm', () => {
             password: '123456',
             confirmPassword: '123456',
          });
-         expect(mockPush).toHaveBeenCalledWith('/');
+         expect(mockPush).toHaveBeenCalledWith('/meu-perfil');
       });
    });
 

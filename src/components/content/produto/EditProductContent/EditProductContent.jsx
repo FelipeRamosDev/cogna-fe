@@ -23,7 +23,7 @@ export default function EditProductContent({ product }) {
             throw new Error(updated.message || 'Erro desconhecido ao editar o produto.');
          }
 
-         router.push('/meu-perfil');
+         router.push('/produto/' + product.id);
          return updated;
       } catch (error) {
          throw new Error('Erro ao editar o produto: ' + error.message);

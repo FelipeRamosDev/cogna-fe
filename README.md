@@ -10,6 +10,7 @@ Este projeto é um teste técnico desenvolvido para a Cogna, com foco em boas pr
    ```
 3. Rode o seguinte comando para iniciar os containers do frontend:
    ```bash
+   docker network create cogna-net
    docker-compose up --build -d
    ```
 

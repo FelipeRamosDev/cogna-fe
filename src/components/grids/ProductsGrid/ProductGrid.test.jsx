@@ -18,21 +18,21 @@ describe('ProductsGrid', () => {
    ];
 
    it('renders a grid with the correct number of product tiles', () => {
-      const { getAllByTestId, container } = render(<ProductsGrid products={products} />);
+      const { getAllByTestId, container } = render(<ProductsGrid staticProducts={products} />);
       expect(container.querySelector('.ProductsGrid')).toBeInTheDocument();
       expect(getAllByTestId('mock-link')).toHaveLength(2);
       expect(getAllByTestId('mock-product-tile')).toHaveLength(2);
    });
 
    it('renders correct hrefs for each product', () => {
-      const { getAllByTestId } = render(<ProductsGrid products={products} />);
+      const { getAllByTestId } = render(<ProductsGrid staticProducts={products} />);
       const links = getAllByTestId('mock-link');
       expect(links[0].getAttribute('href')).toBe('/produto/1');
       expect(links[1].getAttribute('href')).toBe('/produto/2');
    });
 
    it('renders nothing if products is empty', () => {
-      const { container } = render(<ProductsGrid products={[]} />);
+      const { container } = render(<ProductsGrid staticProducts={[]} />);
       expect(container.querySelectorAll('[data-testid="mock-link"]').length).toBe(0);
       expect(container.querySelectorAll('[data-testid="mock-product-tile"]').length).toBe(0);
    });

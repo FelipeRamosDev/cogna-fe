@@ -35,6 +35,7 @@ function FormProvider({
    const [ values, setValues ] = useState(initialValues);
    const [ errors, setErrors ] = useState({});
    const [ responseError, setResponseError ] = useState(null);
+   const [ loading, setLoading ] = useState(false);
    const CSS = parseCSS(className, 'FormControl');
 
    const setFieldValue = function(field, value) {
@@ -52,21 +53,31 @@ function FormProvider({
 
    const handleSubmit = async (event) => {
       event.preventDefault();
+      setLoading(true);
 
-      const result = await onSubmit(values, errors, event);
-      if (!result || typeof result !== 'object' || Array.isArray(result)) {
-         console.error('[FormControl] The "onSubmit" must return an object with success or error properties');
-         return;
-      }
-
-      if (result.error) {
-         return setResponseError(result);
-      }
-
-      if (result.success) {
-         resetForm();
-         setResponseError(null);
-         setFieldError({});
+      try {
+         const result = await onSubmit(values, errors, event);
+         if (!result || typeof result !== 'object' || Array.isArray(result)) {
+            setLoading(false);
+            return;
+         }
+   
+         if (result.error) {
+            setLoading(false);
+            return setResponseError(result);
+         }
+   
+         if (result.success) {
+            resetForm();
+            setResponseError(null);
+            setFieldError({});
+         } else {
+            setLoading(false)
+            setResponseError(result);
+         }
+      } catch (error) {
+         setLoading(false);
+         setResponseError(error);
       }
    };
 
@@ -87,7 +98,7 @@ function FormProvider({
             {children}
 
             {!hideSubmit && <div className="form-actions">
-               <Button type="submit" fullwidth>{submitLabel}</Button>
+               <Button type="submit" isLoading={loading} fullwidth>{submitLabel}</Button>
             </div>}
          </form>
       </FormContext.Provider>
