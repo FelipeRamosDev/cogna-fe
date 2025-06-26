@@ -9,15 +9,15 @@ describe('Spinner', () => {
       expect(container.querySelector('.spinner__circle')).toBeInTheDocument();
    });
 
-   it('applies the default minHeight style', () => {
+   it('applies the default height style', () => {
       const { container } = render(<Spinner />);
       const spinnerDiv = container.querySelector('.Spinner');
-      expect(spinnerDiv).toHaveStyle('min-height: 3rem');
+      expect(spinnerDiv).toHaveStyle('height: 3rem');
    });
 
-   it('applies a custom minHeight style when height prop is provided', () => {
-      const { container } = render(<Spinner height="5rem" />);
+   it('applies a custom height style when height prop is provided', () => {
+      const { container } = render(<Spinner wrapperHeight="5rem" />);
       const spinnerDiv = container.querySelector('.Spinner');
-      expect(spinnerDiv).toHaveStyle('min-height: 5rem');
+      expect(spinnerDiv).toHaveStyle('height: 5rem');
    });
 });

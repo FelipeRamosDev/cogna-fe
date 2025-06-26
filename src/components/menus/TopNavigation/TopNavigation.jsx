@@ -12,7 +12,7 @@ import { parseCSS } from '@/utils/parse';
  * @returns {JSX.Element} A navigation element with primary site links.
  */
 export default function TopNavigation({ className = '' }) {
-   const { user, logout } = useAuth();
+   const { user } = useAuth();
 
    return (
       <nav className={parseCSS(className, 'TopNavigation')}>

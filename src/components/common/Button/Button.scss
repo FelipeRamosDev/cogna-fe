@@ -7,6 +7,7 @@
    text-transform: uppercase;
    cursor: pointer;
    transition: all 50ms;
+   min-width: 5rem;
 
    &:active {
       transform: scale(0.995);
@@ -14,7 +15,7 @@
 
    &:disabled {
       cursor: not-allowed;
-      background-color: $disabled;
+      background-color: $disabled !important;
    }
 
    &.fullwidth {
