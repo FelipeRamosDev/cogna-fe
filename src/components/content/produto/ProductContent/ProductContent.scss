@@ -5,6 +5,7 @@
    .product-details {
       display: flex;
       flex-direction: column;
+      flex-wrap: wrap;
 
       @media screen and (min-width: $screen-m) {
          flex-direction: row;
@@ -24,6 +25,8 @@
 
       .product-info {
          padding: $padding-m;
+         display: flex;
+         flex-direction: column;
 
          @media screen and (min-width: $screen-m) {
             padding: $padding-xl;
@@ -35,13 +38,64 @@
             margin-bottom: 0;
          }
 
-         .price {
+         .product-name {
             font-size: 2rem;
             font-weight: 700;
+            margin-bottom: 0.5rem;
          }
 
-         .description-wrap {
-            margin-top: 2rem;
+         .price-stock {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 3rem;
+
+            .price,
+            .stock {
+               font-size: 2rem;
+               font-weight: 700;
+            }
+
+            .stock-group {
+               text-align: right;
+            }
+         }
+
+         .author-wrap {
+            color: $text-soft;
+
+            a {
+               font-weight: bold;
+            }
+
+            a:not(:hover) {
+               color: $text-soft;
+            }
+
+            p {
+               font-size: 0.9rem;
+               margin-bottom: 0;
+            }
+         }
+      }
+
+      .description-wrap {
+         min-width: 100%;
+         padding: $padding-m;
+
+         @media screen and (min-width: $screen-m) {
+            padding: $padding-xl;
+         }
+
+         .title {
+            font-size: 1.3rem;
+            color: $text-soft;
+            font-weight: 500;
+         }
+
+         .description {
+            font-size: 1.1rem;
+            font-weight: 300;
+            color: $text;
          }
       }
    }

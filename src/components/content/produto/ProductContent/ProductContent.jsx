@@ -20,6 +20,8 @@ import { AuthProvider } from '@/providers/AuthContext';
  * @returns {JSX.Element} A detailed product section with visual and textual elements.
  */
 export default function ProductContent({ product }) {
+   console.log('ProductContent', product);
+
    return (
       <div className="ProductContent">
          <Container>
@@ -32,19 +34,35 @@ export default function ProductContent({ product }) {
                   </AuthProvider>
 
                   <p className="product-path">{product.category} / {product.name}</p>
-                  <h1>{product.name}</h1>
-
-                  <div className="price-group">
-                     <span className="label">Preço:</span>
-                     <p className="price">{parseMoney(product.price)}</p>
+                  <h1 className="product-name">{product.name}</h1>
+                  <div className="author-wrap">
+                     <p>
+                        Publicado em: <b>{new Date(product.created_at).toLocaleString()}</b> por <a href={`mailto:${product.author_email}`}>
+                           {product.author_first_name} {product.author_last_name}
+                        </a>
+                     </p>
                   </div>
 
-                  <Button className="add-to-cart" color="tertiary" fullwidth>Adicionar ao Carrinho</Button>
+                  <div className="price-stock">
+                     <div className="price-group">
+                        <span className="label">Preço:</span>
+                        <p className="price">{parseMoney(product.price)}</p>
+                     </div>
 
-                  <div className="description-wrap">
-                     <span className="label">Descrição:</span>
-                     <pre className="description">{product.description}</pre>
+                     <div className="stock-group">
+                        <span className="label">Disponível</span>
+                        <p className="stock">{product.stock_quantity || 'Indisponível'}</p>
+                     </div>
                   </div>
+
+                  <Button className="add-to-cart" color="tertiary" disabled={!Boolean(product.stock_quantity)} fullwidth>
+                     Adicionar ao Carrinho
+                  </Button>
+               </div>
+
+               <div className="description-wrap">
+                  <h3 className="title">Descrição do produto:</h3>
+                  <pre className="description">{product.description}</pre>
                </div>
             </Card>
          </Container>
