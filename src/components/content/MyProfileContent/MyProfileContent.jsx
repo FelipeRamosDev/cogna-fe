@@ -30,11 +30,11 @@ export default function MyProfileContent() {
                      </div>
                   </div>
 
-                  <ProductsGrid
+                  {user?.id && <ProductsGrid
                      where={{ author_id: user.id }}
                      sort={{ created_at: 'desc' }}
                      populateAuthor
-                  />
+                  />}
                </div>
                
                <div className="sidebar">
