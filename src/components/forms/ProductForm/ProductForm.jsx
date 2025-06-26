@@ -19,9 +19,6 @@ export default function ProductForm({ editMode, product = {}, handleSubmit = asy
       try {
          setLoading(true);
          return await handleSubmit(data);
-      } catch (error) {
-         console.error('[ProductForm] Error submitting form:', error);
-         throw error;
       } finally {
          setLoading(false);
       }
