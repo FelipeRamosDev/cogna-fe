@@ -1,27 +1,11 @@
 import { Button, Card, Container } from '@/components/common';
 import { useAuth } from '@/providers/AuthContext';
-import { useEffect, useState } from "react";
 import { ProductsGrid } from '@/components/grids';
 import { PageHeader } from '@/components/headers';
-import AJAX from '@/services/AJAX';
 import Link from 'next/link';
 
 export default function MyProfileContent() {
-   const [ products, setProducts ] = useState([]);
    const { user, logout } = useAuth();
-   const ajax = AJAX();
-
-   useEffect(() => {
-      ajax.get('/').then(response => {
-         if (!response.data.success) {
-            throw response.data;
-         }
-
-         setProducts(response.data.products);
-      }).catch((err) => {
-         console.error(err);
-      });
-   }, []);  
 
    return (
       <div className="MyProfileContent">
@@ -46,7 +30,11 @@ export default function MyProfileContent() {
                      </div>
                   </div>
 
-                  <ProductsGrid products={products} />
+                  {user?.id && <ProductsGrid
+                     where={{ author_id: user.id }}
+                     sort={{ created_at: 'desc' }}
+                     populateAuthor
+                  />}
                </div>
                
                <div className="sidebar">

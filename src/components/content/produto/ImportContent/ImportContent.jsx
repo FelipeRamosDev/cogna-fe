@@ -28,13 +28,13 @@ export default function ImportContent() {
          if (res.data.success) {
             router.push('/');
          } else {
+            setLoading(false);
             throw res;
          }
       } catch (error) {
-         const errorData = error.response ? error.response.data : error;
-         console.error(errorData);
-      } finally {
          setLoading(false);
+         alert(error.message || 'Erro ao importar produtos. Verifique o console para mais detalhes.');
+      } finally {
          setFile(null);
       }
    }
@@ -74,7 +74,7 @@ export default function ImportContent() {
          <form onSubmit={handleSubmit} encType="multipart/form-data">
             <FileInput className="import-input" accept="application/json" fileValue={file} onChange={handleChange} />
 
-            <Button type="submit" variant="filled" color="tertiary" fullwidth disabled={loading}>
+            <Button type="submit" variant="filled" color="tertiary" fullwidth isLoading={loading}>
                {loading ? 'Importando...' : 'Importar'}
             </Button>
          </form>

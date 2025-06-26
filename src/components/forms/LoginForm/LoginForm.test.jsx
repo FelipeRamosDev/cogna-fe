@@ -47,7 +47,7 @@ describe('LoginForm', () => {
       fireEvent.submit(getByTestId('mock-form'));
       await waitFor(() => {
          expect(mockPost).toHaveBeenCalledWith('/auth/login', { email: 'test@email.com', password: '123456' });
-         expect(mockPush).toHaveBeenCalledWith('/');
+         expect(mockPush).toHaveBeenCalledWith('/meu-perfil');
       });
    });
 
