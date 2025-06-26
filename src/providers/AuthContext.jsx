@@ -30,6 +30,7 @@ export function AuthProvider({
    renderIfLoading = false,
    redirectLogin = false,
    spinnerHeight,
+   spinnerSize,
    notAuthRender = false,
    children
 }) {
@@ -108,7 +109,7 @@ export function AuthProvider({
    }, []);
 
    if (loading && !renderIfLoading && !noSpinner) {
-      return <Spinner height={spinnerHeight} />;
+      return <Spinner wrapperHeight={spinnerHeight} size={spinnerSize} />;
    }
 
    if (!user && redirectLogin) {

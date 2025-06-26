@@ -1,9 +1,10 @@
 import { Button, Card, FormControl, FormInput } from '@/components/common';
 import { ContentSidebar } from '@/components/layout';
 import { useAuth } from '@/providers/AuthContext';
-import { Fragment } from 'react';
+import { Fragment, useState } from 'react';
 
-export default function ProductForm({ editMode, product = {}, handleSubmit = () => {} }) {
+export default function ProductForm({ editMode, product = {}, handleSubmit = async () => {} }) {
+   const [ loading, setLoading ] = useState(false);
    const { user } = useAuth();
 
    if (!user) {
@@ -14,8 +15,20 @@ export default function ProductForm({ editMode, product = {}, handleSubmit = () 
       product.author_id = user.id;
    }
 
+   const handleFormSubmit = async (data) => {
+      try {
+         setLoading(true);
+         return await handleSubmit(data);
+      } catch (error) {
+         console.error('[ProductForm] Error submitting form:', error);
+         throw error;
+      } finally {
+         setLoading(false);
+      }
+   }
+
    return (
-      <FormControl initialValues={product} hideSubmit onSubmit={handleSubmit}>
+      <FormControl initialValues={product} hideSubmit onSubmit={handleFormSubmit}>
          <ContentSidebar reverseColumn>
             <Fragment>
                <Card padding="l" radius="s">
@@ -31,7 +44,7 @@ export default function ProductForm({ editMode, product = {}, handleSubmit = () 
                </Card>
 
                <Card>
-                  <Button color="tertiary" fullwidth>
+                  <Button color="tertiary" fullwidth isLoading={loading}>
                      {editMode ? 'Editar Produto' : 'Cadastrar Produto'}
                   </Button>
                </Card>
