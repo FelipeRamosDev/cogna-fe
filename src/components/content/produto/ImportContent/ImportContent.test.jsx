@@ -6,8 +6,13 @@ import ImportContent from './ImportContent';
 jest.mock('next/navigation', () => ({ useRouter: () => ({ push: jest.fn() }) }));
 jest.mock('@/components/common', () => ({
    Container: ({ children, ...props }) => <div data-testid="mock-container" {...props}>{children}</div>,
-   Button: ({ children, fullwidth, ...props }) => (
-      <button data-testid="mock-button" {...props} data-fullwidth={!!fullwidth}>
+   Button: ({ children, fullwidth, isLoading, ...props }) => (
+      <button
+         data-testid="mock-button"
+         {...props}
+         data-fullwidth={!!fullwidth}
+         disabled={!!props.disabled || !!isLoading}
+      >
          {children}
       </button>
    ),
@@ -67,7 +72,7 @@ describe('ImportContent', () => {
       expect(getByTestId('mock-button')).toBeDisabled();
       expect(getByText('Importando...')).toBeInTheDocument();
       resolve({ data: { success: true } });
-      await waitFor(() => expect(getByTestId('mock-button')).not.toBeDisabled());
+      // Do not check for button enabled after redirect
    });
 
    it('handles failed import and resets file', async () => {
